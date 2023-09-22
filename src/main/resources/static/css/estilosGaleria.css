@@ -1,0 +1,239 @@
+:root{
+    --color-adas: #3fc8eb;
+    --color-adasOscuro: #38333b;
+    --color-editar: #E67E22;
+    --color-borrar: #CB4335;
+    --color-mensaje: #117864;
+    --color-twitter: #00acee;
+    --color-facebook: #3b5998;
+    --color-correo: #DB4437;
+    --color-instagram: #E1306C;
+    --color-footer: #DEE2E3;
+    --color-hover: rgba(0, 0, 0, .9);
+    --tarjeta-sombra: 3px 5px 5px rgba(3, 32, 51, .8);
+}
+
+/********* GALERIA INDEX *********/
+.galeriaIndex{
+    width: 100%;
+    margin: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.galeriaContenedorIndex{
+    height: 200px;
+    width: 200px;
+    margin-bottom: 20px;
+    border: 1px transparent;
+    border-radius: 13px;
+    box-shadow: var(--tarjeta-sombra);
+}
+
+.galeriaContenedorIndex_img{
+    width: 100%;
+    height: 100%;
+    border: 0px transparent;
+    border-radius: 13px;
+}
+
+.galeriaContenedorIndex_hover{
+    width: 200px;
+    height: 200px;
+    margin-top: -200px;
+    border: 3px transparent;
+    border-radius: 13px;
+    background-color: var(--color-hover);
+    opacity: 0;
+    transition: .5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.galeriaContenedorIndex:hover .galeriaContenedorIndex_hover{
+    z-index: 1;
+    opacity: .9;
+}
+
+.galeriaContenedorIndex_hover-boton{
+    border: 3px solid var(--color-adas);
+    border-radius: 13px;
+    padding: .5rem;
+    color: var(--color-adas);
+}
+
+.galeriaContenedorIndex_hover-boton:hover{
+    background-color: var(--color-adas);
+    color: #fff;
+}
+
+@media screen and (max-width: 512px){
+    .galeriaIndex{
+        justify-content: center;
+    }
+}
+/********* GALERIA *********/
+.galeria{
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.galeriaContenedor{
+    height: 200px;
+    width: 200px;
+    margin-bottom: 20px;
+    border: 3px transparent;
+    border-radius: 13px;
+    box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);
+}
+
+.galeriaContenedor_imagen{
+    width: 100%;
+    height: 100%;
+    border: 0px transparent;
+    border-radius: 13px;
+}
+
+.galeriaContenedor_hover{
+    width: 200px;
+    height: 200px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, .4);
+    opacity: 0;
+    transition: .5s;
+
+    margin-top: -200px;
+    border: 3px transparent;
+    border-radius: 13px;
+}
+
+.galeriaContenedor:hover .galeriaContenedor_hover{
+    z-index: 1;
+    opacity: .9;
+}
+
+.galeriaContenedor_hover-boton{
+    border: 3px solid var(--color-adas);
+    border-radius: 13px;
+    padding: .5rem;
+    color: var(--color-adas);
+}
+
+.galeriaContenedor_hover-boton:hover{
+    background-color: var(--color-adas);
+    color: #fff;
+}
+
+.botonAmpliar{
+    cursor: pointer;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 100000000000000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, .9);
+}
+ 
+.miModalImg{
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation-name: zoom;
+    animation-duration: .6s;
+    border: 3px transparent;
+    border-radius: 13px;
+}
+
+.caption{
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    padding: 10px 0;
+    height: 150px;
+}
+
+
+@keyframes zoom {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.close{
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: var(--color-adas);
+    font-size: 40px;
+    font-weight: bold;
+    transition: .3s;
+    /* border: 4px solid var(--color-adasOscuro); */
+}
+
+.close:hover, .close:focus{
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/********* GALERIA ADMIN *********/
+.imagenHover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background-color: rgba(0, 0, 0, .4);
+    opacity: 0;
+    transition: .4s;
+    width: 100%;
+    height: 100%;
+    margin-top: -200px;
+    border: 3px transparent;
+    border-radius: 13px;
+}
+
+.galeriaContenedor:hover .imagenHover{
+    z-index: 1;
+    opacity: 0.9;
+}
+
+.imagenHover_boton{
+    width: 80%;
+    padding: .5rem;
+}
+
+.imagenHover_boton-ampliar{
+    width: 80%;
+    padding: .5rem;
+}
+
+@media screen and (max-width: 511px){
+    .galeria{
+        justify-content: center;
+    }
+}
+

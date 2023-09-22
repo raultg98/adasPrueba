@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Talleres)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <div id="miModal" class="modal">
+            <span id="close" class="close">&times;</span>
+            <img class="miModalImg" id="miModalImg"/>
+            <div class="caption"></div>
+        </div>
+
+        <h3 class="bordeTitulo">I + D +I</h3>
+
+        
+
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    
+</body>
+</html>

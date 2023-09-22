@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Mensajes)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5">
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+
+        <h3 class="bordeTitulo">Mensajes</h3>
+        <section>
+            <div th:if="${#lists.isEmpty(mensajes)}">
+                <h3 class="text-muted">Actualmente no hay mensajes</h3>
+            </div>
+    
+            <div class="tarjetaMensajes">
+    
+                <div th:each="mensaje : ${mensajes}" class="tarjetaMensaje">
+    
+                    <div class="tarjetaMensaje_contenido">
+    
+                        <div class="mx-2 my-2 tarjetaMensaje_contenido-mensaje">
+                            <h4 th:text="${mensaje.noticiaId.titulo}" class="card-tittle text-center"></h4>
+        
+                            <p th:text="${mensaje.mensaje}" class=""></p>
+                        </div>
+                    </div>
+                    
+                    <div class="tarjetaMensaje_hover">
+                        <a th:href="@{/mensajes/borrar/}+ ${mensaje.id}" 
+                           class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaMensaje_hover-boton">
+                            <strong>BORRAR</strong>
+                        </a>
+    
+                        <a th:href="@{/admin/noticias/noticia/}+ ${mensaje.noticiaId.id}" 
+                           class="colorBorde colorTexto btnNoticia text-center tarjetaMensaje_hover-boton">
+                            <strong>NOTICIA ADMIN</strong>
+                        </a>
+                        
+                        <a th:href="@{/autores/autor/mensajes/}+ ${mensaje.autorId.id}" 
+                           class="colorBordeMensaje colorTextoMensaje btnMensaje text-center tarjetaMensaje_hover-boton">
+                            <strong>AUTOR</strong>
+                        </a>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+
+</body>
+</html>

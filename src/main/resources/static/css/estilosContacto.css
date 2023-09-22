@@ -1,0 +1,161 @@
+:root{
+    --color-adas: #3fc8eb;
+    --color-adasOscuro: #38333b;
+    --color-editar: #E67E22;
+    --color-borrar: #CB4335;
+    --color-mensaje: #117864;
+    --color-twitter: #00acee;
+    --color-facebook: #3b5998;
+    --color-correo: #DB4437;
+    --color-instagram: #E1306C;
+    --color-footer: #DEE2E3;
+}
+
+/********* REDES SOCIALES *********/
+.redesSociales{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+}
+
+/* TWITTER */
+.redesSociales__twitter{
+    width: 45px;
+    border: 3px solid var(--color-twitter);
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.redesSociales__twitter a{
+    color: var(--color-twitter);
+}
+
+.redesSociales__twitter:hover a{
+    color: #fff;
+}
+
+.redesSociales__twitter:hover{
+    background-color: var(--color-twitter);
+}
+
+/* FACEBOOK */
+.redesSociales__facebook{
+    width: 45px;
+    border: 3px solid var(--color-facebook);
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.redesSociales__facebook a{
+    color: var(--color-facebook);
+}
+
+.redesSociales__facebook:hover{
+    background-color: var(--color-facebook);
+}
+
+.redesSociales__facebook:hover a{
+    color: #fff;
+}
+
+/* CORREO */
+.redesSociales__correo{
+    width: 45px;
+    border: 3px solid var(--color-correo);
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.redesSociales__correo a{
+    color: var(--color-correo);
+}
+
+.redesSociales__correo:hover{
+    background-color: var(--color-correo);
+}
+
+.redesSociales__correo:hover a{
+    color: #fff;
+}
+
+/* INSTRAGRAM */
+.redesSociales__instagram{
+    width: 45px;
+    border: 3px solid var(--color-instagram);
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.redesSociales__instagram a{
+    color: var(--color-correo);
+}
+
+.redesSociales__instagram:hover{
+    background-color: var(--color-instagram);
+}
+
+.redesSociales__instagram:hover a{
+    color: #fff;
+}
+
+.redesSociales i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/********* MAPA *********/
+.contenedorDivIframe{
+    width: 100%;
+    height: 400px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+.divIframe{
+    width: 45%;
+    height: 350px;
+}
+
+.divIframe_iframe{
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1024px){
+    .contenedorDivIframe{
+        justify-content: center;
+        height: auto;
+    }
+    
+    .divIframe{
+        width: 100%;
+        height: 200px;
+        margin-bottom: 60px;
+    }
+}
+
+/* .divIframe{
+    height: 400px;
+}
+
+.divIframe_iframe{
+    width: 100%;
+} */

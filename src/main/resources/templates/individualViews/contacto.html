@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head(Contacto)}"></head>
+
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+
+        <h3 class="bordeTitulo">CONTACTO</h3>
+        <section class="row justify-content-center mx-2">
+
+            <div class="col-md-6 col-xs-11">
+
+                <div class="bordeTitulo">
+                    <h4>Direcciones:</h4>
+                    <ul class="h5">
+                        <li>
+                            C/ Martinez Marina 6 Bajo Izquierda <br>
+                            <div class="d-flex">
+                                <div style="margin-right: 20px;">
+                                    <strong>CP:</strong>
+                                    <span>33009</span>
+                                </div>
+                                <div>
+                                    <strong>Localidad:</strong>
+                                    <span>Oviedo</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            Av. Moreda 11
+                            <div class="d-flex">
+                                <div style="margin-right: 20px;">
+                                    <strong>CP:</strong>
+                                    <span>33212</span>
+                                </div>
+                                <div>
+                                    <strong>Localidad: </strong>
+                                    <span>Gijón</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bordeTitulo">
+                    <h4>Teléfono:</h4>
+                    <ul class="h5">
+                        <li>
+                            Móvil:
+                            <a href="tel: +34674133039" class="colorTexto">(+34) 674 133 039</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bordeTitulo">
+                    <h4>E-mails:</h4>
+                    <ul class="h5">
+                        <li><a href="mailto: adas@adas.es" class="colorTexto">adas@adas.es</a></li>
+                    </ul>
+                </div>
+                
+                <div class="bordeTitulo">
+                    <h4>Redes Sociales: </h4>
+
+                    <ul class="redesSociales h5">
+                        <li class="redesSociales__twitter">
+                            <a href="https://www.twitter.com/" target="_blank">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </li>
+
+                        <li class="redesSociales__facebook">
+                            <a href="https://www.facebook.com/adas.asturias.9/" target="_blank">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+
+                        <li class="redesSociales__instagram">
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+
+                        <li class="redesSociales__correo">
+                            <a href="mailto: ...@adas.es" target="_blank">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-11">
+                <h4>¿Quieres preguntarnos algo?</h4>
+
+                <div id="mensajeError"></div>
+
+                <form th:action="@{/contacto}" method="POST" th:object="${correoObj}" class="mx-2" id="formulario">
+
+                    <div class="row form-group">
+                        <div class="col-md-6 col-sm-12 my-2">
+                            <label for="correoNombre">
+                                Nombre  
+                                <strong class="text-danger">*</strong>
+                            </label>
+                            <input type="text" th:field="*{nombre}" class="form-control" id="correoNombre" placeholder="Introduce tu nombre"/>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 my-2">
+                            <label for="correoApellidos">
+                                Apellidos
+                                <strong class="text-danger">*</strong>
+                            </label>
+                            <input type="text" th:field="*{apellidos}" id="correoApellidos" class="form-control" placeholder="Introduce tus apellidos"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group my-2">
+                        <label for="correoCorreo">
+                            Correo
+                            <strong class="text-danger">*</strong>
+                        </label>
+                        <input type="email" th:field="*{correo}" id="correoCorreo" class="form-control" placeholder="Introduce tu email">    
+                    </div>
+                   
+                    <div class="form-group my-2">
+                        <label for="correoAsunto">
+                            Asunto
+                            <strong class="text-danger">*</strong>
+                        </label>
+                        <input type="text" th:field="*{asunto}" id="correoAsunto" class="form-control" placeholder="Introduce el asunto"/>
+                    </div>
+                       
+                    <div class="form-group my-2">
+                        <label for="correoMensaje">
+                            Mensaje
+                            <strong class="text-danger">*</strong>
+                        </label>
+                        <textarea th:field="*{mensaje}" id="correoMensaje" class="form-control" placeholder="Introduce el mensaje"></textarea>
+                    </div>
+                    
+                    <div class="form-group my-2">
+                        <div class="form-text">
+                            <strong class="text-danger">*</strong>
+                            <i class="text-muted">Campos requeridos</i>
+                        </div>
+                    </div>
+ 
+                    <div class="d-grid my-2">
+                        <button type="submit" class="colorBorde colorTexto botonEnviar col-12 my-2" id="btnEnviar" disabled>
+                            <i class="fa-sharp fa-solid fa-share-from-square"></i>
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- REPLACE DEL ACORDEON DE FAQ -->
+        <!-- <div th:replace="~{fragments/acordeon :: acordeon}"></div> -->
+
+        <div class="contenedorDivIframe">
+            <!-- my-4 row d-flex justify-content-center -->
+            <div class=" divIframe">
+
+                <h3 class="bordeTitulo">Local Oviedo</h3>
+    
+                <!-- col-12 -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1433.949501528367!2d-5.846443989134948!3d43.35855198885113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sC%2FMart%C3%ADnez%20Marina%206%20Bajo%20Izq.!5e0!3m2!1ses!2ses!4v1678818959746!5m2!1ses!2ses" 
+                        class="divIframe_iframe" allowfullscreen="" loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+    
+            <!-- my-4 row d-flex justify-content-center  -->
+            <div class="divIframe">
+                <h3 class="bordeTitulo">Local Gijón</h3>
+    
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1446.1128448802806!2d-5.680829528750192!3d43.53933715355671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c57290f3e43%3A0x5bd677104b833d2d!2sAv.%20Moreda%2C%2011%2C%2033212%20Gij%C3%B3n%2C%20Asturias!5e0!3m2!1ses!2ses!4v1684846982705!5m2!1ses!2ses" 
+                        class="divIframe_iframe" allowfullscreen="" loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/validacionesAdd/scriptValidacionesContactoCorreo.js}" type="module"></script>
+
+</body>
+</html>

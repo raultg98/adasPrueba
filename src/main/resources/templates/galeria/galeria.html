@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(galeria)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <div id="miModal" class="modal">
+        <span id="close" class="close">&times;</span>
+        <img class="miModalImg" id="miModalImg"/>
+        <div class="caption"></div>
+    </div>
+
+    <main class="mx-5 my-2">
+        <h3 class="bordeTitulo">Galeria</h3>
+        <section class="galeria">
+            <div th:each="foto : ${fotos}" class="galeriaContenedor">
+                <img th:src="${foto}" alt="" id="imagen" class="galeriaContenedor_imagen">
+
+                <div class="galeriaContenedor_hover " id="botonAmpliar">
+                    <a class="galeriaContenedor_hover-boton botonAmpliar">
+                        AMPLIAR
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/modales/scriptModalGaleria.js}"></script>
+
+</body>
+</html>

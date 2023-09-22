@@ -1,0 +1,231 @@
+:root{
+    --color-adas: #3fc8eb;
+    --color-adasOscuro: #38333b;
+    --color-editar: #E67E22;
+    --color-borrar: #CB4335;
+    --color-mensaje: #117864;
+    --color-add:#ffc107;
+    --color-twitter: #00acee;
+    --color-facebook: #3b5998;
+    --color-correo: #DB4437;
+    --color-instagram: #E1306C;
+    --color-footer: #DEE2E3;
+    --tarjeta-sombra: 3px 5px 5px rgba(3, 32, 51, .8);
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+main{
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+/********* FOOTER *********/
+footer {
+    width: 100%;
+    height: 80px;
+    background-color: lightgrey; 
+    margin-top: 2%;
+}
+
+a:hover{
+    color: var(--color-adasOscuro);
+}
+
+/********* ESTILOS BOTONES *********/
+.colorTexto{
+    color: var(--color-adas);
+}
+
+.colorTextoEditar{
+    color: var(--color-editar);
+}   
+
+.colorTextoBorrar{
+    color: var(--color-borrar);
+}
+
+.colorTextoMensaje{
+    color: var(--color-mensaje);
+}
+
+.colorTextoAdd{
+    color: var(--color-add);
+}
+
+.colorBorde{
+    border: 3px solid var(--color-adas);
+    border-radius: 10px;
+}
+
+.colorBordeEditar{
+    border: 3px solid var(--color-editar);
+    border-radius: 10px;
+}
+
+.colorBordeBorrar{
+    border: 3px solid var(--color-borrar);
+    border-radius: 10px;
+}
+
+.colorBordeMensaje{
+    border: 3px solid var(--color-mensaje);
+    border-radius: 10px;
+}
+
+.colorBordeAdd{
+    border: 3px solid var(--color-add);
+    border-radius: 13px;
+}
+
+.colorFondo{
+    background-color: var(--color-adas);
+    color: #fff;
+}
+
+.colorFondoPrueba{
+    background-color: #38333b;
+    color: #fff;
+}
+
+.botonEnviar{
+    padding: 6px;
+}
+
+.bordeTitulo{
+    border-left: 4px solid var(--color-adas);
+    /* border-bottom: 4px solid var(--color-adas);
+    border-bottom-left-radius: 13px; */
+    padding-left: 8px;
+}
+
+.btnNoticia:hover{
+    background-color: var(--color-adas);
+    color: #fff;
+}
+
+.btnBorrar:hover{
+    background-color: var(--color-borrar);
+    color: #fff;
+}
+
+.btnEditar:hover{
+    background-color: var(--color-editar);
+    color: #fff;
+}
+
+.btnMensaje:hover{
+    background-color: var(--color-mensaje);
+    color: #fff;
+}
+
+.btnAdd:hover{
+    background-color: var(--color-add);
+    color: #fff;
+}
+
+/* BOTONES DE ENVIAR LOS FORMULARIOS */
+#btnEnviar:hover{
+    background-color: var(--color-adas);
+    color: white;
+}
+
+#btnEnviar:disabled{
+    color:grey;
+    border-color: grey;
+}
+
+#btnEnviar:disabled:hover{
+    background-color: white;
+    cursor: not-allowed;
+}
+
+/* BOTONES DENTRO DE LAS TAREAS */
+.botonera{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: bold;
+}
+
+.botonera-btn{
+    width: 30%;
+    padding: .2em;
+}
+
+.botonera-mitad{
+    width: 46%;
+    padding: .2em;
+}
+
+.botonera_autor-btn{
+    width: 100%;
+    padding: .2em;
+}
+
+/********* IMAGEN PREVIEW *********/
+.imagenPreview{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagenPreview img{
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+
+    border: 3px transparent;
+    border-radius: 13px;
+    box-shadow: var(--tarjeta-sombra);
+}
+
+@media screen and (max-width: 512px){
+    .imagenPreview{
+       justify-content: center;
+    }
+}
+
+/********* ESTATUTOS *********/
+.descargarEstatutos{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: var(--color-adas);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.descargarEstatutos a{
+    color: var(--color-adasOscuro);
+}
+
+.descargarEstatutos a:hover{
+    color: #fff;
+    font-size: 1.3rem;
+    transition: 0.3s;
+}
+
+.contenedorIconosDiscapacitados{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.contenedorIconosDiscapacitados_icon{
+    width: 200px;
+    height: 200px;
+}

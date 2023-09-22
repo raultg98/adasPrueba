@@ -1,0 +1,24 @@
+<head th:fragment="head(titulo)">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/040e336e8f.js" crossorigin="anonymous"></script>
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <link th:href="@{/css/estilos.css}"                 rel="stylesheet">
+    <link th:href="@{/css/estilosNavBar.css}"           rel="stylesheet">
+    <link th:href="@{/css/estilosLogin.css}"            rel="stylesheet">
+    <link th:href="@{/css/estilosTarjetas.css}"         rel="stylesheet">
+    <link th:href="@{/css/estilosGaleria.css}"          rel="stylesheet">
+    <link th:href="@{/css/estilosQuienesSomos.css}"     rel="stylesheet">
+    <link th:href="@{/css/estilosContacto.css}"         rel="stylesheet">
+    <link th:href="@{/css/estilosActividades.css}"      rel="stylesheet">
+    <link th:href="@{/css/estilosAcordeon.css}"         rel="stylesheet">
+    <link th:href="@{/css/estilosColaboracion.css}"     rel="stylesheet">
+
+    <title th:text="${titulo}"></title>
+</head>

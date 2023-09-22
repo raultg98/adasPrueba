@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(UsuarioNoticias)}"></head>
+<body>
+    
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5">
+
+        <!-- MENSAJE FLASH -->
+        <nav th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></nav>
+
+        <h3 class="bordeTitulo">Autores</h3>
+        <section>
+            <div th:if="${#lists.isEmpty(autoresMensajes)}">
+                <h3 class="text-muted">Actualmente no hay autores</h3>
+            </div>
+    
+            <div class="contenedorAutores">
+                <div th:each="autor : ${autoresMensajes}" class="tarjetaAutor">
+                    <div class="mx-2 my-2 tarjetaAutor_contenido">
+                        <strong>ID: </strong> <span th:text="${autor.id}"></span> <br>
+                        <strong>Nombre: </strong> <span th:text="${autor.nombre}"></span> <br>
+                        <strong>Correo: </strong> <span th:text="${autor.correo}"></span> <br>
+                        <strong>Nº de Mensajes: </strong> <span th:text="${autor.mensajes}"></span>
+                    </div>
+    
+                    <div class="tarjetaAutor_hover">
+                        <a th:href="@{/autores/autor/borrar/}+ ${autor.id}" 
+                           class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaAutor_hover-boton">
+                            BORRAR
+                        </a>
+    
+                        <a th:href="@{/autores/autor/mensajes/}+ ${autor.id}" 
+                           class="colorBorde colorTexto btnNoticia text-center tarjetaAutor_hover-boton">
+                            AUTOR
+                        </a>
+                    </div> 
+                </div>
+    
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    
+</body>
+</html>

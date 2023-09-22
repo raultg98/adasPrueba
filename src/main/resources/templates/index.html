@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Inicio)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+        
+        <div class="row">
+            <a th:href="@{/admin/usuarios}" class="container h6 col-12 btn btn-danger">VISTA DE ADMINISTRADOR</a>
+        </div>
+
+        <div id="miModal" class="modal">
+            <span id="close" class="close">&times;</span>
+            <img class="miModalImg" id="miModalImg"/>
+            <div class="caption"></div>
+        </div>
+    
+        <!-- SOBRE NOSOTROS -->
+        <section class="">
+            <div class="contenedorSN">
+                <div class="contenedorSN_hijo">
+    
+                    <div class="SN_contenido">
+                        <h3 class="bordeTitulo">Quienes Somos</h3>
+    
+                        <p class="SN_contenido-texto">
+                            <span class="negritaADAS">ADAS</span> - <span class="negritaADAS">A</span>sociación de personas con 
+                            <span class="negritaADAS">D</span>iscapacidad de <span class="negritaADAS">AS</span>turias, somos una 
+                            asociación sin ánimo de libro de carácter asistencial. Nuestro principal objetivo desde nuestra fundación 
+                            ha isdo mejorar la calidad de vida de personas con algún tipo de discapacidad, personas mayores o con 
+                            movilidad reducida. Personas dependientes en general, ofreciendoles el mayor apoyo posible a lo largo de 
+                            su vida.
+                        </p>
+                    </div>
+    
+                    <div class="SN_hover">
+                        <a th:href="@{/sobreNosotros/quienesSomos}" class="SN_hover-boton">
+                            <strong>QUIENES SOMOS</strong>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="contenedorSN_hijo">
+    
+                    <div class="SN_contenido">
+                        <h3 class="bordeTitulo">Nuestros Programas</h3>
+
+                        <p class="SN_contenido-texto">
+                            Desde nuestros inicios en el año 1998, hemos realizado numerosos programas. Estos tenian
+                            como único fin intentar mejorar en la medida de lo posible la calidad de vida de las personas 
+                            con algún tipo de discapacidad o de movilidad reducida. Estos programas no solo iban dirigidos
+                            a las personas con discapacidad si no también a sus familias.
+                        </p>
+                    </div>
+    
+                    <div class="SN_hover">
+                        <a th:href="@{/servicios/programas}" class="SN_hover-boton">
+                            <strong>NUESTROS PROGRAMAS</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ULTIMAS NOTICIAS -->
+        <section class="mt-4">
+            <h3 class="bordeTitulo">Últimas Noticias</h3>
+        
+            <div th:if="${#lists.isEmpty(noticias)}">
+                <h3 class="text-muted">Actualmente no hay noticias</h3>
+            </div>
+    
+            <div class="tarjetas" >
+                <div th:each="noticia : ${noticias}" class=" my-3 noticias tarjeta">
+            
+                    <div class="tarjetaContenido">
+                        <img th:src="@{/img/noticias/}+ ${noticia.foto}" class="tarjetaImagen" alt="image">
+        
+                        <div class="mx-2 my-2 tarjetaBodyOverflowHidden">
+                            <h5 th:text="${noticia.titulo}" class="card-tittle text-center"></h5>
+            
+                            <div th:text="${noticia.descripcion}" class="card-text descripcion"></div>
+                        </div>
+            
+                        <div class="row card-footer tarjetaFooter tarjetaFooterTamanio align-content-center">
+                            <div class="col-6 tarjetaPadding">
+                                <strong th:text="${noticia.usuarioId.cargo}"></strong>
+                            </div>
+                                
+                            <div class="col-6 d-flex justify-content-end text-muted tarjetaPadding">
+                                <i th:text="${#dates.format(noticia.fecha, 'dd-MMM-yyyy')}"></i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="tarjetaHover" id="tarjetaHover">
+                        <a th:href="@{/noticias/noticia/}+ ${noticia.id}" class="tarjetaHover__boton ">
+                            <strong>VER NOTICIA</strong>
+                        </a>
+                    </div> 
+                </div>
+    
+            </div>
+
+            <div th:if="!${#lists.isEmpty(noticias)}" class="d-grid my-2">
+                <a th:href="@{/noticias}" class="colorBorde colorTexto btnNoticia col-12 text-center p-1">
+                    <strong>VER TODAS LAS NOTICIAS</strong>
+                </a>
+            </div>
+        </section>
+
+         <!-- GALERIA -->
+        <section class="mt-4">
+            <h3 class="bordeTitulo">Galería</h3>
+
+            <div th:if="${#lists.isEmpty(galeria)}">
+                <h3 class="text-muted">Actualmente no hay imagenes en nuestra galería</h3>
+            </div>
+
+            <div class="galeriaIndex">
+                <div th:each="imagen : ${galeria}" class="galeriaContenedorIndex">
+                    <img th:src="${imagen}" class="galeriaContenedorIndex_img" />
+
+                    <div class="galeriaContenedorIndex_hover" id="botonAmpliar">
+                        <a class="galeriaContenedorIndex_hover-boton botonAmpliar">
+                            <strong>AMPLIAR</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div th:if="!${#lists.isEmpty(galeria)}" class="d-grid my-2">
+                <a th:href="@{/galeria}" class="colorTexto colorBorde btnNoticia text-center col-12 p-1">
+                    <strong>VER GALERÍA</strong>
+                </a>
+            </div>
+        </section>
+
+         <!-- ACTIVIDADES -->
+        <section class="mt-4">
+            <h3 class="bordeTitulo">Actividades</h3>
+
+            <div th:if="${#lists.isEmpty(actividades)}">
+                <h3 class="text-muted">Actualmente no hay ninguna actividad</h3>
+            </div>
+
+            <div class="actividadesContenedorIndex">
+                <div th:each="actividad : ${actividades}" class="actividadContenedorIndex">
+                    <div class="actividadContenedorIndex_contenido">
+
+                        <img th:if="${actividad.foto} != ''" th:src="'/img/actividades/'+ ${#dates.format(actividad.fecha, 'yyyy')} +'/'+ ${actividad.id} +'/'+ ${actividad.foto}" 
+                             class="actividadContenedorIndex_contenido-imagen" alt="No hay foto" />
+
+                        <img th:unless="${actividad.foto} != ''" th:src="@{/img/cruz.jpeg}" alt=""
+                             class="actividadContenedorIndex_contenido-imagen">
+
+                        <span th:text="${#dates.format(actividad.fecha, 'yyyy')} +' - '+ ${actividad.nombre}" 
+                              class="actividadContenedorIndex_contenido-descripcion"></span>
+                    </div>
+                    
+
+                    <div class="actividadContenedorIndex_hover">
+                        <a th:href="@{/servicios/actividades/actividad/}+ ${actividad.id}"
+                           class="actividadContenedorIndex_hover-boton colorTexto colorBorde btnNoticia text-center">
+                            <strong>ACTIVIDAD</strong>
+                        </a>
+                    </div> 
+                </div>
+            </div>
+
+            <div th:if="!${#lists.isEmpty(actividades)}" class="d-grid my-2">
+                <a th:href="@{/servicios/actividades}"
+                   class="colorTexto colorBorde btnNoticia text-center col-12 p-1">
+                    <strong>VER ACTIVIDADES</strong>
+                </a>
+            </div>
+            
+        </section>
+
+    </main>
+    
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/modales/scriptModalGaleria.js}"></script>
+    <script th:src="@{/js/scriptNoticiaTexto.js}"></script>
+
+</body>
+</html>

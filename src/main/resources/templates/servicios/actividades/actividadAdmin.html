@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Actividades)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <div id="miModal" class="modal">
+        <span id="close" class="close">&times;</span>
+        <img class="miModalImg" id="miModalImg">
+        <div class="caption"></div>
+    </div>
+
+    <main class="mx-5 mt-4 mb-2">
+        <h3 class="bordeTitulo">
+            Actividad
+            <span th:text="${actividadAnio} +': '"></span>
+            <span th:text="${actividad.nombre}" class="actividadTitulo"></span>
+        </h3>
+
+        <section>
+            <div class="my-2 botonera">
+                <a th:href="@{/servicios/actividades/actividad/borrar/}+ ${actividad.id}"
+                   class="colorBordeBorrar colorTextoBorrar btnBorrar text-center botonera-btn">
+                    BORRAR
+                </a>
+    
+                <a th:href="@{/servicios/actividades/actividad/editar/}+ ${actividad.id}"
+                   class="colorBordeEditar colorTextoEditar btnEditar text-center botonera-btn">
+                    EDITAR
+                </a>
+    
+                <a th:href="@{/servicios/actividades/actividad/add/}+ ${actividadAnio} +'/'+ ${actividad.id}"
+                   class="colorBordeAdd colorTextoAdd btnAdd text-center botonera-btn">
+                    ADD
+                </a>
+            </div>
+    
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="text-primary">
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Ubicacion</th>
+                        <th>Fecha</th>
+                        <th>Usuarios</th>
+                        <th>Voluntario</th>
+                    </thead>
+        
+                    <tbody>
+                        <tr th:object="${actividad}">
+                            <td th:text="${actividad.id}"></td>
+                            <td th:text="${actividad.nombre}"></td>
+                            <td th:text="${actividad.ubicacion}"></td>
+                            <td th:text="${#dates.format(actividad.fecha, 'dd-MMM-yyyy')}"></td>
+                            <td th:text="${actividad.usuarios}"></td>
+                            <td th:text="${actividad.voluntarios}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <h3 class="bordeTitulo mt-4">Galería</h3>
+            
+            <div th:if="${#lists.isEmpty(fotos)}">
+                <h3 class="text-muted">Actualmente no hay imagenes</h3>
+            </div>
+    
+            <div class="galeria">
+                <div th:each="foto : ${fotos}" class="galeriaContenedor">
+                    <img th:src="'/img/actividades/'+ ${actividadAnio} +'/'+ ${actividad.id} +'/'+ ${foto}"
+                         class="galeriaContenedor_imagen">
+    
+                    <div class="imagenHover">
+                        <a th:href="@{/servicios/actividades/actividad/admin/borrar/}+ ${actividadAnio} +'/'+ ${actividad.id} +'/'+ ${foto}"
+                           class="colorBordeBorrar colorTextoBorrar btnBorrar text-center imagenHover_boton">
+                            <strong>BORRAR</strong>
+                        </a>
+    
+                        <a class="colorTexto colorBorde btnNoticia text-center imagenHover_boton-ampliar botonAmpliar ">
+                            <strong>AMPLIAR</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/modales/scriptModalGaleriaActividad.js}"></script>
+    
+</body>
+</html>

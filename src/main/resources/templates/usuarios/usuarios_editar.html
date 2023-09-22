@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(NuestraHistoria)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5 my-2">
+        <!-- MENSAJE FLASH -->
+        <nav th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></nav>
+
+        <form th:action="@{/admin/usuarios/editar/}+${usuario.id}" th:object="${usuario}" method="POST" id="formulario">
+
+            <div id="mensajeError"></div>
+            
+            <div class="form-group">
+                <label for="usuarioNombre">Nombre</label>
+                <input type="text" th:field="*{nombre}" id="usuarioNombre" class="form-control"/>
+            </div>
+    
+            <div class="form-group">
+                <label for="usuarioCorreo">Correo</label>
+                <input type="email" th:field="*{correo}" id="usuarioCorreo" class="form-control"/>
+            </div>
+    
+            <div class="form-group">
+                <label for="usuarioContrasenia">Contraseña</label>
+                <input type="password" th:field="*{contrasenia}" id="usuarioContrasenia" class="form-control"/>
+            </div>
+    
+            <div class="row g-2">
+                <div class="col-md">
+                    <label for="usuarioCargo">Cargo</label><br>
+                    <select name="cargo" id="usuarioCargo" class="form-select">
+                        <option th:value="*{cargo}" th:text="${usuario.cargo}"></option>
+                        <option th:each="cargoOpt : ${T(com.adas.models.Cargos).values()}" th:value="${cargoOpt}" th:text="${cargoOpt}"></option>
+                    </select>
+                </div>
+    
+                <div class="col-md">
+                    <label for="usuarioAdmin">Admin</label><br>
+                    <select th:field="*{admin}" name="admin" id="usuarioAdmin" class="form-select">
+                        <option  th:value="${usuario.admin}" th:text="${usuario.admin}"></option>
+                        <option th:value="true">TRUE</option>
+                        <option th:value="false">FALSE</option>
+                    </select>
+                </div>
+            </div>
+    
+            <div class="d-grid my-2">
+                <button type="submit" class="colorBorde colorTexto botonEnviar col-12 my-2" id="btnEnviar">
+                    <i class="fa-sharp fa-solid fa-share-from-square"></i>
+                    Enviar
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/validacionesEditar/scriptValidacionesUsuariosEditar.js}" type="module"></script>
+
+</body>
+</html>

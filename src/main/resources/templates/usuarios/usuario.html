@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(UsuarioNoticias)}"></head>
+<body>
+    
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+
+        <h3 class="bordeTitulo">USUARIO</h3>
+        <section>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="text-primary">
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Cargo</th>
+                        <th>Admin</th>
+                    </thead>
+        
+                    <tbody>
+                        <tr th:object="${usuario}">
+                            <td th:text="${usuario.id}"></td>
+                            <td th:text="${usuario.nombre}"></td>
+                            <td th:text="${usuario.correo}"></td>
+                            <td th:text="${usuario.cargo}"></td>
+                            <td th:text="${usuario.admin}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    
+            <div class="botonera mb-4 mt-2">
+                <a th:href="@{/admin/usuarios/borrar/}+ ${usuario.id}"
+                   class="colorBordeBorrar colorTextoBorrar btnBorrar text-center botonera-btn">
+                    BORRAR
+                </a>
+    
+                <a th:href="@{/admin/usuarios/editar/}+ ${usuario.id}"
+                   class="colorBordeEditar colorTextoEditar btnEditar text-center botonera-btn">
+                    EDITAR
+                </a>
+    
+                <a th:href="@{/admin/usuarios/usuario/add/}+ ${usuario.id}"
+                   class="colorBordeAdd colorTextoAdd btnAdd text-center botonera-btn">
+                    ADD
+                </a>
+            </div>
+        </section>
+        
+        <h3 class="bordeTitulo">NOTICIAS</h3>
+        <section>
+            <div th:if="${#lists.isEmpty(noticias)}">
+                <h3 class="text-muted">Este usuario no tiene noticias</h3>
+            </div>
+    
+            <div class="contenedorNoticias">
+                <div th:each="noticia : ${noticias}" class="tarjetaNoticia tarjetaPadding">
+                        
+                    <div class="tarjetaNoticia_contenido">
+                        <img th:src="@{/img/noticias/}+${noticia.foto}" class="tarjetaNoticia_contenido-img">
+        
+                        <div class="mx-2 my-2 tarjetaNoticia_contenido-body">
+                            <h5 th:text="${noticia.titulo}" class="card-title text-center"></h5>
+                            
+                            <div th:text="${noticia.descripcion}" class="card-text descripcion"></div>
+                        </div>
+            
+                        <div class="row card-footer tarjetaFooter">
+                            <div class="col-6 tarjetaPadding">
+                                <strong th:text="${noticia.usuarioId.cargo}"></strong>
+                            </div>
+                                
+                            <div class="col-6 d-flex justify-content-end text-muted tarjetaPadding">
+                                <i th:text="${#dates.format(noticia.fecha, 'dd-MMM-yyyy')}"></i>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="tarjetaNoticia_hover">
+                        <a th:href="@{/admin/noticias/editar/}+${noticia.id}" 
+                            class="colorBordeEditar colorTextoEditar btnEditar text-center tarjetaNoticia_hover-boton">
+                            EDITAR    
+                        </a>
+    
+                        <a th:href="@{/admin/noticias/borrar/}+${noticia.id}" 
+                            class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaNoticia_hover-boton">
+                            BORRAR    
+                        </a>
+    
+                        <a th:href="@{/admin/noticias/noticia/}+${noticia.id}" 
+                            class="colorBorde colorTexto btnNoticia text-center tarjetaNoticia_hover-boton">
+                            NOTICIA ADMIN 
+                        </a>
+    
+                        <!-- <a th:href="@{/admin/noticias/mensajes/}+${noticia.id}" 
+                            class="colorBordeMensaje colorTextoMensaje btnMensaje text-center tarjetaNoticia_hover-boton">
+                            MENSAJES    
+                        </a> -->
+        
+                        <a th:href="@{/noticias/noticia/}+${noticia.id}" 
+                            class="colorBorde colorTexto btnNoticia text-center tarjetaNoticia_hover-boton">
+                            NOTICIA    
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/scriptNoticiaTexto.js}"></script>
+</body>
+</html>

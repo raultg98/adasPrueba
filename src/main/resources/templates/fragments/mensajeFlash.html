@@ -1,0 +1,5 @@
+<div th:fragment="mensajeFlash(message, clase)" th:if="${message != null}" th:class="'alert alert-'+${clase}+' alert-dismissible fade show my-2'">
+        <span th:text="${message}"></span>
+
+        <button th:if="${message != null}" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

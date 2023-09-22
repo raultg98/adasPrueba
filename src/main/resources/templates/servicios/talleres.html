@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Talleres)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <div id="miModal" class="modal">
+            <span id="close" class="close">&times;</span>
+            <img class="miModalImg" id="miModalImg"/>
+            <div class="caption"></div>
+        </div>
+
+        <h3 class="bordeTitulo">Talleres</h3>
+
+        <ul>
+            <li>
+                <span class="negritaADAS">TALLER DE ESTIMULACIÓN COGNITIVA PARA PERSONAS MAYORES</span>
+
+                <p class="sangria">
+                    El Objetivo de este curso es el mantenimiento de las habilidades intelectuales y prevenir un
+                    deterioro de las mismas. <br>
+                    Está orientado a personas mayores de 70 años sin diagnóstico de cualquier tipo de demencia, 
+                    es decir, es una actividad preventivo.
+                </p>
+            </li>
+
+            <li>
+                <span class="negritaADAS">
+                    TALLER DE INICIACIÓN A LA INFORMÁTICA Y BUENAS PRÁCTICAS EN EL USO DE LAS NUEVAS TECNOLOGÍAS
+                </span>
+
+                <p class="sangria">
+                    El objetivo de este taller es que los participantes adquieran los conocimientos en el manejo
+                    de las nuevas tecnologías, tanto en el ordenador como en el Smarthphone, así como su interacción 
+                    entre ambos. Teniendo como finalidad la adquisición de destrezas básicas en ofimática, así como 
+                    la utilización segura de internet y de las redes sociales.
+                </p>
+
+                <div class="contenedorInformatica">
+
+                    <!-- <img th:src="${imagen}" class="galeriaContenedorIndex_img" />
+
+                    <div class="galeriaContenedorIndex_hover" id="botonAmpliar">
+                        <a class="galeriaContenedorIndex_hover-boton botonAmpliar">
+                            <strong>AMPLIAR</strong>
+                        </a>
+                    </div> -->
+
+                    <!-- <div class="contenedorInformatica_foto">
+                        <img th:src="@{/img/talleres/informatica.jpg}" class="contenedorInformatica_foto-img">
+
+                        <div class="contenedorInformatica_hover" id="botonAmpliar">
+                            <a class="contenedorInformatica_hover-boton colorTexto colorBorde btnNoticia text-center botonAmpliar">
+                                <strong>AMPLIAR</strong>
+                            </a>
+                        </div>
+                    </div> -->
+                    
+                    <div class="contenedorInformatica_video">
+                        <video th:src="@{/img/talleres/informatica_video.mp4}" controls class="contenedorInformatica_video-video"></video>
+                    </div>
+
+                    <div class="contenedorInformatica_video">
+                        <video th:src="@{/img/talleres/informatica_video2.mp4}" controls class="contenedorInformatica_video-video"></video>
+                    </div>
+
+                    <div class="contenedorInformatica_video">
+                        <video th:src="@{/img/talleres/informatica_video3.mp4}" controls class="contenedorInformatica_video-video"></video>
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <span class="negritaADAS">TALLER DE INICIACIÓN AL YOGA ADAPTADO</span>
+
+                <p class="sangria">
+                    Uso del yoga comom herramienta para conseguir una vida con mayor bienestar física, mental y emocional
+                    en las personas con discapacidad intelectual. La Universidad de Illinois, por ejemplo, publicaba que 
+                    con tan sólo 20 minutos de Hatha Yoga, seguido de respiración consciente y meditación, los participantes
+                    lograron aumentar de forma significativa su capacidad de concentración y de memoria.
+                </p>
+            </li>
+
+            <li>
+                <span class="negritaADAS">TALLER DE NATACIÓN DE MANTENIMIENTO</span>
+
+                <p class="sangria">
+                    Las actividades deportivas favorecen tanto la agilidad física como la mental en las personas con discapacidad
+                    intelectual, siendo la natación uni de los deportes que más favorece la coordinación psicomotriz, por ello, 
+                    consideramos que este taller va a ser de gran importancia para nuestros usuarios.
+                </p>
+            </li>
+        </ul>
+
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <!-- <script th:src="@{/js/scriptModalTalleres.js}"></script> -->
+    
+</body>
+</html>

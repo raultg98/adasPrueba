@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Noticias)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <div id="miModal" class="modal">
+        <span id="close" class="close">&times;</span>
+        <img class="miModalImg" id="miModalImg">
+        <div class="caption"></div>
+    </div>
+
+    <main class="mx-5">
+        <h3 class="bordeTitulo">Usuario</h3>
+        <section th:object="${noticia}">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="text-primary">
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Cargo</th>
+                        <th>Admin</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td th:text="${noticia.usuarioId.id}"></td>
+                            <td th:text="${noticia.usuarioId.nombre}"></td>
+                            <td th:text="${noticia.usuarioId.correo}"></td>
+                            <td th:text="${noticia.usuarioId.cargo}"></td>
+                            <td th:text="${noticia.usuarioId.admin}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="botonera mb-4 mt-2">
+                <a th:href="@{/admin/usuarios/borrar/}+ ${noticia.usuarioId.id}"
+                   class="colorBordeBorrar colorTextoBorrar btnBorrar text-center botonera-btn">
+                    BORRAR
+                </a>
+
+                <a th:href="@{/admin/usuarios/editar/}+ ${noticia.usuarioId.id}"
+                   class="colorBordeEditar colorTextoEditar btnEditar text-center botonera-btn">
+                    EDITAR
+                </a>
+
+                <a th:href="@{/admin/usuarios/usuario/add/}+ ${noticia.usuarioId.id}"
+                   class="colorBordeAdd colorTextoAdd btnAdd text-center botonera-btn">
+                    ADD
+                </a>
+            </div>
+        </section>
+
+        <h3 class="bordeTitulo">Noticia</h3>
+        <section th:object="${noticia}">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="text-primary">
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Fecha</th>
+                        <th>Nº Mensajes</th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td th:text="${noticia.id}"></td>
+                            <td th:text="${noticia.titulo}"></td>
+                            <td th:text="${#dates.format(noticia.fecha, 'dd-MMM-yyyy')}"></td>
+                            <td th:text="${numeroMensajes}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="contenedorNoticiaAdmin">
+                <div class="noticiaAdmin_img">
+                    <img th:src="@{/img/noticias/}+ ${noticia.foto}" id="imagen"
+                     class="noticiaAdmin_img-foto"/>
+
+                    <div class="noticiaAdmin_imgHover" id="botonAmpliar">
+                        <a class="noticiaAdmin_imgHover-boton botonAmpliar text-center colorTexto colorBorde btnNoticia">
+                            <strong>AMPLIAR</strong>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="noticiaAdmin_descripcion table-striped">
+                    <div class="noticiaAdmin_descripcion-titulo text-primary">
+                        Descripción
+                    </div>
+
+                    <div th:text="${noticia.descripcion}" class="noticiaAdmin_descripcion-contenido descripcion"></div>
+                </div>
+            </div>
+
+            <div class="botonera mb-4 mt-2">
+                <a th:href="@{/admin/noticias/borrar/}+ ${noticia.id}"
+                   class="colorBordeBorrar colorTextoBorrar btnBorrar text-center botonera-btn">
+                    BORRAR
+                </a>
+
+                <a th:href="@{/admin/noticias/editar/}+ ${noticia.id}"
+                   class="colorBordeEditar colorTextoEditar btnEditar text-center botonera-btn">
+                    EDITAR
+                </a>
+
+                <a th:href="@{/noticias/noticia/}+ ${noticia.id}"
+                   class="colorBorde colorTexto btnNoticia text-center botonera-btn">
+                    NOTICIA
+                </a>
+            </div>
+        </section>
+
+        <h3 class="bordeTitulo">Mensajes</h3>
+        <section class="tarjetaMensajes">
+
+            <div th:if="${#lists.isEmpty(mensajes)}">
+                <h3 class="text-muted">Actualmente no hay mensajes</h3>
+            </div>
+
+            <div th:each="mensaje : ${mensajes}" class="tarjetaMensaje">
+                <div class="tarjetaMensaje_contenido">
+    
+                    <div class="mx-2 my-2 tarjetaMensaje_contenido-mensaje">
+                        <h4 th:text="${mensaje.autorId.nombre}" class="card-tittle text-center"></h4>
+    
+                        <p th:text="${mensaje.mensaje}"></p>
+                    </div>
+                </div>
+    
+                <div class="tarjetaMensaje_hover">
+                    <a th:href="@{/mensajes/borrar/}+ ${mensaje.id}"
+                        class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaMensaje_hover-boton">
+                        BORRAR
+                    </a>
+    
+                    <a th:href="@{/autores/autor/mensajes/}+ ${mensaje.autorId.id}"
+                        class="colorBorde colorTexto btnNoticia text-center tarjetaMensaje_hover-boton">
+                        AUTOR
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/modales/scriptModalNoticia.js}"></script>
+    <script th:src="@{/js/scriptNoticiaTexto.js}"></script>
+
+</body>
+</html>

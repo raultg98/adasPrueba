@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Usuarios)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5">
+        <div class="d-grid my-2">
+            <a th:href="@{/admin/usuarios/add}" class="colorTextoAdd colorBordeAdd btnAdd text-center col-12 p-1">
+                <strong>CREAR USUARIO</strong>
+            </a>
+        </div>
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+
+        <h3 class="bordeTitulo">Usuarios</h3>
+        <section>
+            <div th:if="${#lists.isEmpty(usuarios)}">
+                <h3 class="text-muted">Actualmente no hay usuarios registrados</h3>
+            </div>
+    
+            <div class="contenedorTarjetasUsuarios">
+    
+                <div th:each="usuario : ${usuarios}" class="tarjetaUsuario">
+                
+                    <div class="mx-2 my-2 tarjetaUsuario_contenido">
+                        <strong>ID:         </strong> <span th:text="${usuario.id}"></span> <br>
+                        <strong>Nombre:     </strong> <span th:text="${usuario.nombre}"></span> <br>
+                        <strong>Correo:     </strong> <span th:text="${usuario.correo}"></span> <br>
+                        <strong>Contraseña: </strong> <span th:text="${usuario.contrasenia}"></span> <br>
+                        <strong>Cargo:      </strong> <span th:text="${usuario.cargo}"></span> <br>
+                        <strong>Admin:      </strong> <span th:text="${usuario.admin}"></span> <br>
+                    </div>
+    
+                    <div class="tarjetaUsuario_hover text-center">
+                        <a th:href="@{/admin/usuarios/borrar/}+ ${usuario.id}" 
+                           class="colorBordeBorrar colorTextoBorrar btnBorrar tarjetaUsuario_hover-boton">
+                            <strong>BORRAR</strong>
+                        </a>
+        
+                        <a th:href="@{/admin/usuarios/editar/}+ ${usuario.id}" 
+                           class="colorBordeEditar colorTextoEditar btnEditar tarjetaUsuario_hover-boton">
+                           <strong>EDITAR</strong>
+                        </a>
+        
+                        <a th:href="@{/admin/usuarios/usuario/}+ ${usuario.id}" 
+                           class="colorBordeMensaje colorTextoMensaje btnMensaje tarjetaUsuario_hover-boton">
+                           <strong>USUARIO</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+
+</body>
+</html>

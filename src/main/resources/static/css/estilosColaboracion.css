@@ -1,0 +1,52 @@
+:root{
+    --color-adas: #3fc8eb;
+    --color-adasOscuro: #38333b;
+    --color-editar: #E67E22;
+    --color-borrar: #CB4335;
+    --color-mensaje: #117864;
+    --color-twitter: #00acee;
+    --color-facebook: #3b5998;
+    --color-correo: #DB4437;
+    --color-instagram: #E1306C;
+    --color-footer: #DEE2E3;
+    --color-warning: #ffc107;
+    --color-hover: rgba(0, 0, 0, .9);
+    --tarjeta-sombra: 3px 5px 5px rgba(3, 32, 51, .8);
+}
+
+.contenedorColaboracion{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contenedorColaboracion_donativos{
+    width: 48%;
+}
+
+.contenedorColaboracion_donativos-IBAN{
+    font-style: italic;
+    font-weight: bold;
+    color: var(--color-adasOscuro);
+}
+
+.contenedorColaboracion_formulario{
+    width: 48%;
+}
+
+.contenedorColaboracion_formulario-contenido{
+    margin: 0;
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 1060px){
+    .contenedorColaboracion_donativos{
+        width: 100%;
+    }
+
+    .contenedorColaboracion_formulario{
+        width: 100%;
+    }
+}

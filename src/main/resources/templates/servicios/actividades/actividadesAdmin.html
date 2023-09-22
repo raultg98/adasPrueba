@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Actividades)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+
+        <h3 class="bordeTitulo">ACTIVIDADES</h3>
+        <section class="my-2 acordeonPadre" id="acordeon">
+
+            <div th:if="${#lists.isEmpty(actividadesPorAnio)}">
+                <h3 class="text-muted">Actualmente no hay ninguna actividad</h3>
+            </div>
+
+            <div th:each="actividadesAnio : ${actividadesPorAnio}" class="acordeon">
+                <div  class="acordeonHeader" th:id="'heading'+ ${actividadesAnio.anio}">
+                    <button class="acordeonBoton" type="button" data-bs-toggle="collapse" aria-expanded="true"
+                            th:data-bs-target="'#collapse'+ ${actividadesAnio.anio}" th:aria-controls="'collapse'+ ${actividadesAnio.anio}"
+                            th:text="${actividadesAnio.anio}">
+                    </button>
+                </div>
+
+                <div class="accordion-collapse collapse acordeonBody" th:id="'collapse'+ ${actividadesAnio.anio}"
+                     th:aria-labelledby="'heading'+ ${actividadesAnio.anio}" data-bs-parent="#acordeon">
+
+                    <div class="tarjetasActividades">
+
+                        <a th:href="@{/servicios/actividades/add/}+ ${actividadesAnio.anio}" class="acordeonBotonAdd text-center">
+                            ADD ACTIVIDAD
+                        </a>
+
+
+                        <div th:if="${#lists.isEmpty(actividadesAnio.actividades)}" class="tarjetaActividad_mensaje">
+                            <h3 class="text-muted">Este año no tiene ninguna actividad actualmente</h3>
+                        </div>
+
+                        <div th:each="actividad : ${actividadesAnio.actividades}" class="tarjetaActividad">
+                            <div class="tarjetaActividad_contenido">
+                                <strong>ID: </strong> <span th:text="${actividad.id}"></span> <br>
+                                <strong>Nombre: </strong> <span th:text="${actividad.nombre}"></span> <br>
+                                <strong>Ubicación: </strong> <span th:text="${actividad.ubicacion}"></span> <br>
+                                <strong>Usuarios: </strong> <span th:text="${actividad.usuarios}"></span> <br>
+                                <strong>Voluntarios: </strong> <span th:text="${actividad.voluntarios}"></span> <br>
+                                <strong>Fecha: </strong> <span th:text="${#dates.format(actividad.fecha, 'dd/MMM/yyyy')}"></span>
+                            </div>
+
+                            <div class="tarjetaActividad_hover">
+                                <a th:href="@{/servicios/actividades/actividad/borrar/}+ ${actividad.id}"
+                                   class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaActividad_hover-boton">
+                                    <strong>BORRAR</strong>
+                                </a>
+
+                                <a th:href="@{/servicios/actividades/actividad/editar/}+ ${actividad.id}"
+                                   class="colorBordeEditar colorTextoEditar btnEditar text-center tarjetaActividad_hover-boton">
+                                    <strong>EDITAR</strong>
+                                </a>
+
+                                <a th:href="@{/servicios/actividades/actividad/add/}+ ${actividadesAnio.anio} +'/'+ ${actividad.id}"
+                                   class="colorBordeAdd colorTextoAdd btnAdd text-center tarjetaActividad_hover-boton">
+                                    <strong>ADD</strong>
+                                </a>
+
+                                <a th:href="@{/servicios/actividades/actividad/admin/}+ ${actividad.id}"
+                                   class="colorBorde colorTexto btnNoticia text-center tarjetaActividad_hover-boton">
+                                    <strong>ACTIVIDAD</strong>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            <!-- ACORDEON 2014 
+            <div class="acordeon">
+                <div class=" acordeonHeader" id="headingOne">
+                    <button class=" acordeonBoton" type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        2014
+                    </button>
+                </div>
+
+                <div class="accordion-collapse collapse acordeonBody" id="collapseOne" aria-labelledby="headingOne" 
+                    data-bs-parent="#acordeon">
+                    <div class="accordion-body">
+
+                        <a th:href="@{/servicios/actividades/add/}+ 2014" class="acordeonBotonAdd text-center">
+                            ADD ACTIVIDAD
+                        </a>
+                        
+                        <div class="tarjetasActividades">
+                            <div th:each="actividad2014 : ${actividades2014}" class="tarjetaActividad"> 
+                                <div class="tarjetaActividad_contenido">
+                                    <strong>ID: </strong> <span th:text="${actividad2014.id}"></span> <br>
+                                    <strong>Nombre: </strong> <span th:text="${actividad2014.nombre}"></span> <br>
+                                    <strong>Ubicación: </strong> <span th:text="${actividad2014.ubicacion}"></span> <br>
+                                    <strong>Usuarios: </strong> <span th:text="${actividad2014.usuarios}"></span> <br>
+                                    <strong>Voluntarios: </strong> <span th:text="${actividad2014.voluntarios}"></span> <br>
+                                </div>
+                                
+                                <div class="tarjetaActividad_hover">
+                                    <a th:href="@{/servicios/actividades/actividad/borrar/}+ ${actividad2014.id}"
+                                    class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaActividad_hover-boton">
+                                        BORRAR
+                                    </a>
+                    
+                                    <a th:href="@{/servicios/actividades/actividad/editar/}+ ${actividad2014.id}"
+                                    class="colorBordeEditar colorTextoEditar btnEditar text-center tarjetaActividad_hover-boton">
+                                        EDITAR
+                                    </a>
+                    
+                                    <a th:href="@{/servicios/actividades/actividad/add/2014/}+ ${actividad2014.id}"
+                                    class="colorBordeAdd colorTextoAdd btnAdd text-center tarjetaActividad_hover-boton">
+                                        ADD
+                                    </a>
+                    
+                                    <a th:href="@{/servicios/actividades/actividad/admin/}+ ${actividad2014.id}"
+                                    class="colorBorde colorTexto btnNoticia text-center tarjetaActividad_hover-boton">
+                                        ACTIVIDAD
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    
+</body>
+</html>

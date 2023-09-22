@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Colaboracion)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+        <h3 class="bordeTitulo">Colaboración</h3>
+        <div class="contenedorColaboracion">
+            <section class="contenedorColaboracion_donativos">
+                <div class="sangria">
+                    <p>Puedes colaborar con nosotros de diferentes formas:</p>
+                    <ol>
+                        <li>Haciendote Socio Protector.</li>
+                        <li>Siendo Voluntario.</li>
+                        <li>Mediante Donativos.</li>
+                    </ol>
+                </div>
+                
+                <h5 class="bordeTitulo">Donativos:</h5>        
+                <div class="sangria">
+                    <p>
+                        Si quieres ayudarnos a impulsar la activiadad de fomento de las Personas con Discapacidad puedes hacer un
+                        DONATIVO en cualquier oficina de <span class="negritaADAS">CAJA RURAL DE ASTURIAS</span>.
+                    </p>
+
+                    <h5 class="">
+                        Cuenta IBAN: <span class="contenedorColaboracion_donativos-IBAN">ES83 3059 0065 1423 6240 5124</span>
+                    </h5>
+                </div>  
+            
+            </section>
+    
+            <section class="contenedorColaboracion_formulario">
+                <h5 class="bordeTitulo">Socio Protector y Voluntariado:</h5>
+
+                <div class="contenedorColaboracion_formulario-contenido">
+
+                    <div id="mensajeError"></div>
+
+                    <p class="">
+                        Si deseas hacerte socio protector o ser voluntario nos puedes pedir información de como serlo mediante:
+                        el siguiente formulario de contacto o llamandonos al 
+                        <strong> <a href="tel: +34674133039" class="colorTexto">(+34) 674 133 039</a> </strong>
+                    </p>
+    
+                    <form th:action="@{/colaboracion}" method="POST" th:object="${correoObj}" class="" id="formulario">
+                        <div class="row form-group">
+                            <div class="col-md-6 col-sm-12 my-2">
+                                <label for="correoNombre">
+                                    Nombre
+                                    <strong class="text-danger">*</strong>
+                                </label>
+                                <input type="text" th:field="*{nombre}" id="correoNombre" class="form-control"
+                                       placeholder="Introduce el Nombre"/>
+                            </div>
+        
+                            <div class="col-md-6 col-sm-12 my-2">
+                                <label for="correoApellidos">
+                                    Apellidos
+                                    <strong class="text-danger">*</strong>
+                                </label>
+                                <input type="text" th:field="*{apellidos}" id="correoApellidos" class="form-control" 
+                                       placeholder="Introduce los Apellidos" />
+                            </div>
+                        </div>
+        
+                        <div class="form-group my-2">
+                            <label for="correoCorreo">
+                                Correo
+                                <strong class="text-danger">*</strong>
+                            </label>
+                            <input type="email" th:field="*{correo}" id="correoCorreo" class="form-control" 
+                                   placeholder="Introduce el Correo"/>
+                        </div>
+        
+                        <div class="form-group my-2">
+                            <label for="correoAsunto">
+                                Asunto
+                                <strong class="text-danger">*</strong>
+                            </label>
+                            <input type="text" th:field="*{asunto}" id="correoAsunto" class="form-control" 
+                                   placeholder="Introduce el Asunto" />
+                        </div>
+        
+                        <div class="form-group my-2">
+                            <label for="correoMensaje">
+                                Mensaje
+                                <strong class="text-danger">*</strong>
+                            </label>
+                            <textarea th:field="*{mensaje}" id="correoMensaje" class="form-control"
+                                      placeholder="Introduce el Mensaje"></textarea>
+                        </div>
+        
+                        <div class="d-grid my-2">
+                            <button type="submit" class="colorBorde colorTexto botonEnviar col-12 my-2" id="btnEnviar" disabled>
+                                <i class="fa-sharp fa-solid fa-share-from-square"></i>
+                                Enviar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+            </section>
+        </div>
+        
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/validacionesAdd/scriptValidacionesContactoCorreo.js}" type="module"></script>
+    
+</body>
+</html>

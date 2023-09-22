@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Actividades)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+        <h3 class="bordeTitulo">Actividades</h3>
+        <section class="my-2 acordeonPadre" id="acordeon">
+
+            <div th:each="actividadesAnio : ${actividadesPorAnio}" class="acordeon">
+
+                <div class="acordeonHeader" th:id="'heading'+ ${actividadesAnio.anio}">
+                    <button class="acordeonBoton" type="button" data-bs-toggle="collapse"
+                            th:data-bs-target="'#collapse'+ ${actividadesAnio.anio}" aria-expanded="true" 
+                            th:aria-controls="'collapse'+ ${actividadesAnio.anio}" th:text="${actividadesAnio.anio}">
+
+                    </button>
+                </div>
+
+                <div class="accordion-collapse collapse acordeonBody" th:id="'collapse'+ ${actividadesAnio.anio}"
+                     th:aria-labelledby="'heading'+ ${actividadesAnio.anio}" data-bs-parent="#acordeon">
+                    
+                    <div class="accordion-body">
+
+                        <div th:each="actividad : ${actividadesAnio.actividades}" class="acordeonActividad">
+                            <a th:href="@{/servicios/actividades/actividad/} +${actividad.id}" class="acordeonActividad_enlace">
+                                <strong th:text="${actividad.nombre}"></strong>
+                                <span th:text="${#dates.format(actividad.fecha, 'dd/MMM/yyyy')}"></span>
+                            </a>
+                        </div> 
+
+                    </div>
+                </div>
+            </div> 
+
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    
+</body>
+</html>

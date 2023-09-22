@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Noticias)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5">
+        <div class="d-grid my-2">
+            <a th:href="@{/admin/noticias/add}" class="colorTextoAdd colorBordeAdd btnAdd text-center col-12 p-1">
+                <strong>CREAR NOTICIA</strong>
+            </a>
+        </div>
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+    
+        <h3 class="bordeTitulo">Noticias</h3>
+        <section>
+            <div th:if="${#lists.isEmpty(noticias)}">
+                <h3 class="text-muted">Actualmente no hay noticias</h3>
+            </div>
+    
+            <div class="contenedorNoticias">
+                <div th:each="noticia : ${noticias}" class="tarjetaNoticia tarjetaPadding">
+                    
+                    <div class="tarjetaNoticia_contenido">
+                        <img th:src="@{/img/noticias/}+${noticia.foto}" class="tarjetaNoticia_contenido-img">
+    
+                        <div class="mx-2 my-2 tarjetaNoticia_contenido-body">
+                            <h5 th:text="${noticia.titulo}" class="card-title text-center"></h5>
+                        
+                            <div th:text="${noticia.descripcion}" class="card-text descripcion"></div>
+                        </div>
+                    </div>
+
+                    <div class="tarjetaNoticia_hover">
+                        <a th:href="@{/admin/noticias/editar/}+${noticia.id}" 
+                           class="colorBordeEditar colorTextoEditar btnEditar text-center tarjetaNoticia_hover-boton">
+                            <strong>EDITAR</strong>
+                        </a>
+
+                        <a th:href="@{/admin/noticias/borrar/}+${noticia.id}" 
+                           class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaNoticia_hover-boton">
+                            <strong>BORRAR</strong>
+                        </a>
+
+                        <a th:href="@{/admin/noticias/noticia/}+${noticia.id}" 
+                           class="colorBorde colorTexto btnNoticia text-center tarjetaNoticia_hover-boton">
+                            <strong>NOTICIA ADMIN</strong>
+                        </a>
+
+                        <a th:href="@{/admin/usuarios/usuario/}+ ${noticia.usuarioId.id}"
+                           class="colorBordeMensaje colorTextoMensaje btnMensaje text-center tarjetaNoticia_hover-boton">
+                            <strong>USUARIO</strong>
+                        </a>
+
+                        <a th:href="@{/noticias/noticia/}+${noticia.id}" 
+                           class="colorBorde colorTexto btnNoticia text-center tarjetaNoticia_hover-boton">
+                            <strong>NOTICIA</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/scriptNoticiaTexto.js}"></script>
+
+</body>
+</html>

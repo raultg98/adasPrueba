@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(QuienesSomos)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+        <!-- <h3 class="bordeTitulo">Quienes Somos</h3> -->
+
+        <h4 class="bordeTitulo">Introdución:</h4>
+        <section class="sangria">
+            <p class="sinMargen">
+                Para explicarte quienes somos, primero tienes que saber el significado de nuestro acrónimo <br>
+    
+                <span class="negrita">ADAS - </span> 
+                <span class="acronimoADAS">A</span>sociación de personas con 
+                <span class="acronimoADAS">D</span>iscapacidad de 
+                <span class="acronimoADAS">AS</span>turias
+            </p>
+    
+            <div>
+                Somos una asociación sin ánimo de lucro de carácter asistencial. Desde sus orígenes en Mieres, en el año 
+                1998, su principal objetivo ha sido trabajar por la mejora de la calidad de vida de personas:
+                <ul class="sinMargen">
+                    <li>Con algún tipo de discapacidad.</li>
+                    <li>Mayores.</li>
+                </ul>
+                Dependientes en general, ofreciendoles el mayor apoyo posible a lo largo de su ciclo de vida.
+
+                <!-- foto del primer local de adas el de mieres -->
+            </div>
+        </section>
+
+        <h4 class="bordeTitulo">Como se funda:</h4>
+        <section class="sangria">
+            <p>
+                <strong>ADAS</strong> nace de la agrupación de varias personas con discapacidad descontentas 
+                y preocipas por la falta de recursos especializados en el concejo, el estancamiento y olvido al que estos se
+                ven sometidos. Ante este contexto se dan cuenta de que ellos mismos deben de pelear y reivindicar los derechos
+                que les garantiza la Constitución Española.
+            </p>
+        </section>
+
+        <h4 class="bordeTitulo">Hemos sido pineros en:</h4>
+        <section class="sangria">
+            <div>
+                Para desarrollar estos objetivos <strong>ADAS</strong> ha llevado a cabo programas pioneros para el sector de 
+                la discapacidad en el Principado de Asturias. Entre ellos destacan:
+                <ul class="sinMargen">
+                    <li>El transporte Adaptado y acompañamiento "puerta a puerta".</li>
+                    <li>El programa de rehabilitación.</li>
+                    <li>Cursos de insercción laboral y formación.</li>
+                    <li>Cursos de formación en nuevas tecnologías.</li>
+                </ul>
+
+                <!-- poner alguna foto de los cursos -->
+            </div>
+        </section>
+
+        <h4 class="bordeTitulo">Barreras en el mundo de la Discapacidad:</h4>
+        <section class="sangria">
+            <p>
+                A lo largo de nuestros años de experiencia en el trato directo con el mundo de la discapacidad, en 
+                <strong>ADAS</strong> hemos visto que una de las barreras más grande para las personas con movilidad 
+                reducido y/o dependencia, es la dificultad de acceso a medios de transporte accesibles y razonablemente
+                económicos que cubran sus necesidades de movilidad y transporte.
+            </p>
+            <p>
+                Durante la realización de los numerosos programas de formación, inserción laboral y rehabilitación que 
+                hemos realizado desde el año 1998 hemos observado en primera instancia que el transporte adapatado para
+                las personas con movilidad reducidad y problemas de dependencia es un tema imprescindible, muy caro y, 
+                por desgracia, muy poco desarrollado en concordancia con las necesidades de las personas que lo necesitan, 
+                lo que siempre ha supuesto la mayor barrera para una gran parte de nuestros socios y usuarios.
+            </p>
+                
+        </section>
+
+        <h4 class="bordeTitulo">Fundación de <a href="#" class="enlace" target="_blank">Transportes Adaptados</a>:</h4>
+        <section class="sangria">
+            <p>
+                Debido a la barrera del desplazamiento para las personas con discapacidad y/o problemas de movilidad reducida,
+                <strong>ADAS</strong> llevaba años trabajando en aportar soluciones a este problema.
+                El día 31 de Mayo de 2002 <strong>ADAS</strong>, junto a <a href="#" class="enlace" target="_blank">La Asociación 
+                de Disminuidos del Morrazo</a> y <a href="https://www.bidaideak.org/" class="enlace" target="_blank">La Asociación 
+                Sociedad Vasca de Minusválidos Bidaideak</a>, decide crear <a href="#" class="enlace" target="_blank">Transportes 
+                Adaptados S.L</a>
+            </p>
+            <p>
+                Esta empesa nace como un <span>Centro Especial de Empleo</span> con doble finalidad. Por una parte dar empleo a 
+                personas con discapacidad y por otra parte dar un impulso a la calidad del transporte adaptado en el Principado 
+                de Asturias. <a href="#" class="enlace" target="_blank">Transportes Adaptados</a> es una empresa pionera en 
+                Asturias, en lo referente al transporte adaptado y actualmente realiza servicios para numerosos <span class="negritaADAS">CPRs</span> 
+                del <span class="negritaADAS">ERA</span>, <span class="negritaADAS">CAIs</span> y colegios de educación especial
+                habiendo aportado mayor calidad, profesionalidad y disminuyendo los costes de los servicios notablemente. Actualmente 
+                <a href="#" class="enlace">Transportes Adaptados</a> cuenta con una plantilla de más de 50 trabajadores.
+            </p>
+        </section>
+        
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    
+</body>
+</html>

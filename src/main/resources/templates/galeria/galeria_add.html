@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(galeriaAdd)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+
+        <h3 class="bordeTitulo">Galería Añadir</h3>
+        <section>
+            <form th:action="@{/galeria/add}" method="POST" id="formulario" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="imagenAdd">Subir imagen</label>
+                    <input type="file" id="imagenAdd" class="form-control" th:name="addFoto" multiple/>
+                </div>
+    
+                <div class="d-grid my-2">
+                    <button type="submit" id="btnEnviar" class="colorBorde colorTexto botonEnviar col-12 my-2" disabled>
+                        <i class="fa-shrap fa-solid fa-share-from-square"></i>
+                        Enviar
+                    </button>
+                </div>
+            </form>
+    
+            <div id="imagenPreview" class="imagenPreview"></div>
+        </section>
+    </main>
+    
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/validacionesAdd/scriptValidacionesGaleria.js}" type="module"></script>
+
+</body>
+</html>

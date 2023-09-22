@@ -1,0 +1,145 @@
+:root{
+    --color-adas: #3fc8eb;
+    --color-adasOscuro: #38333b;
+    --color-editar: #E67E22;
+    --color-borrar: #CB4335;
+    --color-mensaje: #117864;
+    --color-twitter: #00acee;
+    --color-facebook: #3b5998;
+    --color-correo: #DB4437;
+    --color-instagram: #E1306C;
+    --color-footer: #DEE2E3;
+    --color-warning: #ffc107;
+    --color-hover: rgba(0, 0, 0, .9);
+    --color-hoverMenu: #08A4F7;
+    --tarjeta-sombra: 3px 5px 5px rgba(3, 32, 51, .8);
+}
+
+.actividadTitulo{
+    color: var(--color-adas);
+}
+
+.acordeonActividad{
+    width: 100%;
+}
+
+.acordeonActividad_enlace{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    /* border-bottom: 3px solid var(--color-adas);
+    color: var(--color-adasOscuro); */
+
+    background-color: var(--color-adas);
+    border: 3px transparent;
+    border-radius: 13px;
+    color: #fff;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.acordeonActividad_enlace:hover{
+    background-color: var(--color-hoverMenu);
+    color: #fff;
+}
+
+.acordeonBotonAdd{
+    width: 100%;
+    padding: .5rem;
+    margin: 10px 20px;
+
+    color: var(--color-warning);
+    border: 3px solid var(--color-warning);
+    border-radius: 13px;
+    font-weight: bold;
+}
+
+.acordeonBotonAdd:hover{
+    background-color: var(--color-warning);
+    color: #fff;
+}
+
+.tarjetaActividad_mensaje{
+    margin: 0 20px;
+}
+
+/********* ACTIVIDADES INDEX *********/
+.actividadesContenedorIndex{
+    width: 100%;
+    margin: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.actividadContenedorIndex{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+
+    border: 3px transparent;
+    border-radius: 13px;
+    box-shadow: var(--tarjeta-sombra);
+
+}
+
+.actividadContenedorIndex_contenido-imagen{
+    width: 200px;
+    height: 200px;
+    border: 0px transparent;
+    border-radius: 13px;
+}
+
+.actividadContenedorIndex_contenido-descripcion{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    padding: .5rem;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    background-color: rgba(0, 0, 0, .6);
+
+    border: 0px transparent;
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+.actividadContenedorIndex_hover{
+    width: 200px;
+    height: 200px;
+    margin-top: -200px;
+    border: 0px transparent;
+    border-radius: 13px;
+    background-color: var(--color-hover);
+    opacity: 0;
+    transition: .5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actividadContenedorIndex_hover-boton{
+    width: 80%;
+    padding: .3rem;
+    margin: 5px;
+}
+
+.actividadContenedorIndex:hover .actividadContenedorIndex_hover{
+    opacity: .9;
+    z-index: 1;;
+}
+
+@media screen and (max-width: 512px){
+    .actividadesContenedorIndex{
+        justify-content: center;
+    }
+}

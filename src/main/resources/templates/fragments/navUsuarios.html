@@ -1,0 +1,36 @@
+<nav th:fragment="nav_bar_usuarios" 
+    class="navbar navbar-expand-md navbar-dark bg-danger
+           text-white border rounded mx-5 my-2 text-center">
+
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarUsuarios"
+                aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navBarUsuarios">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a th:href="@{/admin/usuarios}" class="nav-link"><strong>USUARIOS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/noticias}" class="nav-link"><strong>NOTICIAS</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/autores}" class="nav-link"><strong>AUTORES</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/mensajes}" class="nav-link"><strong>MENSAJES</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/galeria/admin}" class="nav-link"><strong>GALERIA</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/servicios/actividades/admin}" class="nav-link"><strong>ACTIVIDADES</strong></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>

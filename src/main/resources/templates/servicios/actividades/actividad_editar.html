@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Actividades)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5 my-2">
+        
+        <form th:action="@{/servicios/actividades/actividad/editar/}+ ${actividad.id}" th:object="${actividad}" method="POST" id="formulario">
+            
+            <div id="mensajeError"></div>
+
+            <div class="form-group">
+                <label for="actividadNombre">Nombre</label>
+                <input type="text" th:field="*{nombre}" id="actividadNombre" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="actividadesFecha">Fecha</label>
+                <input type="date" th:field="*{fecha}"th:value="${fecha}" id="actividadFecha" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="actividadUbicacion">Ubicación</label>
+                <input type="text" th:field="*{ubicacion}" id="actividadUbicacion" class="form-control" required>
+            </div>
+
+            <div class="row g-2">
+                <div class="form-group col">
+                    <label for="actividadUsuarios">Usuarios</label>
+                    <input type="number" th:field="*{usuarios}" id="actividadUsuarios" class="form-control" required>
+                </div>
+    
+                <div class="form-group col">
+                    <label for="actividadVoluntarios">Voluntarios</label>
+                    <input type="number" th:field="*{voluntarios}" id="actividadVoluntarios" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="d-grid my-2">
+                <button type="submit" class="colorBorde colorTexto botonEnviar col-12 my-2" id="botonEnviar">
+                    <i class="fa-sharp fa-solid fa-share-from-square"></i>
+                    Enviar
+                </button>
+            </div>
+            
+        </form>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/validacionesEditar/scriptValidacionesActividadesEditar.js}" type="module"></script>
+    
+</body>
+</html>

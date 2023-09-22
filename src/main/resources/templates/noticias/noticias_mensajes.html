@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(UsuarioNoticias)}"></head>
+<body>
+    
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <main class="mx-5">
+
+        <!-- MENSAJE FLASH -->
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+
+        <h3 class="bordeTitulo">Noticia</h3>
+        <section class="mb-2">
+            <table class="table table-bordered table-striped table-responsive text-primary">
+                <thead>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Fecha</th>
+                    <th>Id Usuario</th>
+                    <th>Nombre Usuario</th>
+                    <th>Cargo Usuario</th>
+                </thead>
+
+                <tbody>
+                    <tr th:object="${noticia}">
+                        <td th:text="${noticia.id}"></td>
+                        <td th:text="${noticia.titulo}"></td>
+                        <td th:text="${noticia.descripcion}"></td>
+                        <td th:text="${#dates.format(noticia.fecha, 'dd-MM-yyyy')}"></td>
+                        <td th:text="${noticia.usuarioId.id}"></td>
+                        <td th:text="${noticia.usuarioId.nombre}"></td>
+                        <td th:text="${noticia.usuarioId.cargo}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+            
+        <h3 class="bordeTitulo">Mensajes</h3>
+        <section>
+            <div th:if="${#lists.isEmpty(mensajes)}">
+                <h3 class="text-muted">Actualmente esta noticia no tiene ningun mensaje</h3>
+            </div>
+
+            <div class="tarjetaMensajes">
+                <div th:each="mensaje : ${mensajes}" class="tarjetaMensaje">
+
+                    <div class="tarjetaMensaje_contenido">
+                        <h6 th:text="${mensaje.autorId.correo}" class="tarjetaMensaje_contenido-autor"></h6>
+
+                        <p th:text="${mensaje.mensaje}" class="tarjetaMensaje_contenido-texto"></p>
+                    </div>
+
+                    <div class="tarjetaMensaje_hover">
+                        <a th:href="@{/mensajes/borrar/}+ ${mensaje.id}" 
+                           class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaMensaje_hover-boton">
+                            BORRAR
+                        </a>
+
+                        <a th:href="@{/autores/autor/mensajes/}+ ${mensaje.autorId.id}" 
+                           class="colorBordeMensaje colorTextoMensaje btnMensaje text-center tarjetaMensaje_hover-boton">
+                            AUTOR
+                        </a>
+
+                        <a th:href="@{/noticias/noticia/}+ ${mensaje.noticiaId.id}" 
+                           class="colorBorde colorTexto btnNoticia text-center tarjetaMensaje_hover-boton">
+                            NOTICIA
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </section> 
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/scriptNoticiaTexto.js}"></script>
+    
+</body>
+</html>

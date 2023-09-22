@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(NuestraHistoria)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+    <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
+
+    <div id="miModal" class="modal">
+        <span id="close" class="close">&times;</span>
+        <img class="miModalImg" id="miModalImg"/>
+        <div class="caption"></div>
+    </div>
+
+    <main class="mx-5">
+
+        <div th:replace="~{fragments/acordeonNoticia :: acordeonNoticia}"></div>
+
+        <form th:action="@{/admin/noticias/editar/}+ ${noticia.id}" th:object="${noticia}" method="POST" class="mx-2" id="formulario" enctype="multipart/form-data">
+            
+            <div id="mensajeError"></div>
+
+            <div class="form-group">
+                <label for="noticiaTitulo">Titulo</label>
+                <input type="text" th:field="*{titulo}" id="noticiaTitulo" class="form-control"/>
+    
+                <div class="alert alert-danger" th:if="${errores != null && errores.containsKey('titulo')}" th:text="${errores.descripcion}"></div>
+            </div>
+    
+            <div class="form-group">
+                <label for="noticiaDescripcion">Descripcion</label>
+                <textarea th:field="*{descripcion}" id="noticiaDescripcion" class="form-control"></textarea>
+    
+                <div class="alert alert-danger" th:if="${errores != null && errores.containsKey('descripcion')}" th:text="${errores.correo}"></div>
+            </div>
+
+            <div class="row ">
+                <div class="form-group col-sm-6 col-md-6 col-xs-12">
+                    <label for="noticiaImagen">Imagen</label>
+                    <input type="file" name="imagen" id="noticiaImagen" class="form-control" >
+                </div>
+    
+                <div class="form-group col-sm-6 col-md-6 col-xs-12">
+                    <label for="noticiaUsuarioId">Usuario</label>
+                    <select th:field="*{usuarioId}" id="noticiaUsuarioId" class="form-control">
+                        <option th:value="${noticia.usuarioId.id}" th:text="${noticia.usuarioId.id} +' - '+ ${noticia.usuarioId.nombre}"></option>
+                        <option th:each="usuario : ${usuarios}" th:value="${usuario.id}" th:text="${usuario.id}+' - ' +${usuario.nombre}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="d-grid my-2">
+                <button type="submit" class="colorBorde colorTexto botonEnviar col-12 my-2" id="btnEnviar">
+                    <i class="fa-sharp fa-solid fa-share-from-square"></i>
+                    Enviar
+                </button>
+            </div>
+        </form>
+
+        <div class="contenedorEditar row">
+            <div class="contenedorEditar_actual form-group">
+                <label for="noticiaImagenActual">Imagen actual</label>
+
+                <img th:src="@{/img/noticias/}+ ${noticia.foto}" class="contenedorEditar_actual-img form-control" id="noticiaImagenActual"/>
+            </div>
+
+            <div class="contenedorEditar_nueva form-group" id="contenedorEditar_nueva">
+                <label for="noticiaImagenNueva">Nueva imagen</label>
+                <img th:src="@{/img/cruz.jpeg}" class="contenedorEditar_nueva-img form-control" id="noticiaImagenNueva">
+            </div>
+        </div>
+
+        <!-- <div id="imagenPreview"></div> -->
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/validacionesEditar/scriptValidacionesNoticiasEditar.js}" type="module"></script>
+
+</body>
+</html>

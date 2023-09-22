@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Talleres)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <div id="miModal" class="modal">
+            <span id="close" class="close">&times;</span>
+            <img class="miModalImg" id="miModalImg"/>
+            <div class="caption"></div>
+        </div>
+
+        <h3 class="bordeTitulo">Manual de buenas prácticas en la interacción con personas con discapacidad</h3>
+        <section>
+            <p>
+                El acceso de algunas personas a determinados entornos, biones o servicios que deben de estar a su disposición, supone la necesidad de contemplar 
+                aspecto importantes de los mismos con el fin de garantizar su participación en igualdad de condiciones que el resto de la ciudadanía. Un segmento
+                de la población susceptible de medidas de estas caracteríticas es el de las personas con discapacidad, ya sea sensorial, motórica, intelectual o 
+                con enfermedad mental. Las necesidades de accesibilidad son distintas en cada persona y en gran medida éstas vienen determindas por el contexto al 
+                que se pretende acceder o comunicar.
+
+                <br>
+
+                Este documento pretende hacer una serie de recomendaciones con las que facilitar conductas y actitudes que garanticen el acceso de quienes presentan
+                alguna necesidad especifíca que atender.
+            </p>
+
+            <strong>En general, es importante tener en cuenta las siguientes premisas:</strong>
+
+            <ul>
+                <li>Prestar atención a la persona, no a la discapacidad.</li>
+                <li>Hablar directamente a la persona con discapacidad, no a su acompañante.</li>
+                <li>
+                    Si existen dificultades en la comunicación, debemos asegurarnos de que hemos entendido el mensaje y, a su vez, que la persona con discapacidad
+                    nos ha comprendido y dejar el tiempo necesario para que ésta se exprese.
+                </li>
+                <li>
+                    No existen palabras tabú. Es natural decir a una persona ciega "nos vemos luego", o a otra en silla de ruedas "anda más deprisa".
+                </li>
+                <li>Hay que evitar la sobreprotección y tratar a las personas como corresponde a su edad y necesidades. Tratar a los adultos como adultos.</li>
+                <li>
+                    Debemos de evitar términos anticuados y peyorativos comom "inválido", "minusválido", "discapacitado", etc. y halar siempre de "personas con 
+                    discapacidad"
+                </li>
+                <li>
+                    No hay que mostrar impaciencia cuando una persona, por sus necesidades especiales, requiere más tiempo para llevar a cabo cualquier acción o 
+                    proceso comunicativo. Si el cliente solicita un lugar o una adaptación en la empresa que presta el servicio, no es un queja, sino una 
+                    necesidad a la que hay que responder de manera positiva
+                </li>
+            </ul>
+
+            <strong>Los diferentes tipos de discapacidad que vamos a tratar en este manual son:</strong>
+            <ul>
+                <li><a href="#discapacidadVisual">Discapacidad Visual</a></li>
+                <li><a href="#discapacidadFisica">Discapacidad Física</a></li>
+                <li><a href="#discapacidadIntelectual">Discapacidad Intelectual</a></li>
+                <li><a href="#discapacidadAuditiva">Discapacidad Auditica</a></li>
+            </ul>
+
+            <!-- 4 FOTOS DE LOS SIMBOLOS DE LOS DISCAPACITADOS: SILLAS DE RUEDAS, CIEGOS, SORDOS, INTELIGENCIA -->
+            
+        </section>
+
+
+        <section>
+            <a name="discapacidadVisual" id="discapacidadVisual"></a>
+            <h3 class="bordeTitulo">La Discapacidad Visual:</h3>
+
+            <h5 class="bordeTitulo">¿Qué es la discapacidad Visual?</h5>
+            <p class="sangria">La discapacidad visual es una carencia, diminución o defecto en la visión.</p>
+
+            <h5 class="bordeTitulo">A la hora de comunicarnos tendremos en cuenta:</h5>
+            <ul>
+                <li>Hablarle mirando a su cara.</li>
+                <li>
+                    Dirigirnos directamente a la persona con discapacidad visual para saber lo que quiere o desea y no al acompañante (en caso de que lo hubiera).
+                </li>
+                <li>Hablarle en tono normal, despacio y claro, evitando gritar o elevar la voz.</li>
+                <li>
+                    Evitaremos utilizar palabras como "aquí", "allí", "esto", "aquello"...; es preferible que utilicemos términos más orientativos como "a tu izquierda", 
+                    "detrás de ti"... En ocasiones, puede ser también útil conducir su mano, previo aviso, hacia el objeto e indicarle de lo que se trata.
+                </li>
+                <li>
+                    Podemos utilizar normalmente las palabras "ver", "mirar". No tenemos que considerarlas términos tabú, pues las propieas personas con discapacidad
+                    visual las utilizan habitualmente en sus conversaciones.
+                </li>
+                <li>
+                    Avisarle cuando nos vamos, ya que de lo contrario puede dirigerse a nosotros pensando que aún permanecemos allí. Igualmente, si regresamos, es 
+                    conveniente indicárselo.
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <strong>Ante un riesgo:</strong>
+                    <ul>
+                        <li>Eliminaremos exclamaciones que puedan provocar ansiedad a la persona tales como "¡ay!", "cuidado".</li>
+                        <li>Emplearemos exclamaciones más informativas como "¡alto!", con el fin de evitar que siga avanzando.</li>
+                        <li>Le explicaremos después, verbalmente, el peligro o le ayudaremos para que pueda evitarlo.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Cuando tengamos que movernos por el espacio:</strong>
+                    <ul>
+                        <li>Le informaremos de lo que nos vamos a ir encontrando en cada espacio a los que vamos accediendo.</li>
+                        <li>
+                            Pregutaremos antes de ofrecerle ayuda, ya que el hecho de tenga una discapacidad visual, no debe llevarnos a suponer que, necesariamente,
+                            la necesite
+                        </li>
+                        <li>
+                            Cuando la ayuda necesaria sea de carácter puntual, ajustaremos nuestra colaboración a esa circunstancia y procuraremos no prolongarla más 
+                            de lo necesario.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Si estamos en lugares estrechos o puertas:</strong>
+                    <ul>
+                        <li>
+                            Colocaremos el brazo a que va sujeta la persona hacia atrás (a la parte media de la espalda), para indicarle de una manera no verbal el paso 
+                            por lugares estrechos o puertas.
+                        </li>
+                        <li>La persona con discapacidad visual debe extender el brazo con que se sujeta para colocarse justo detrás de nosotros.</li>
+                        <li>
+                            Una vez pasada la puerta o estrechamiento, volveremos a colocar nuestro brazo en la posición normal, lo que indicará que ya puede volver a 
+                            colocarse en la posición anterior.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Si la persona solicita nuestra ayuda:</strong>
+                    <ul>
+                        <li>Nos colocaremos delante de la persona ciega (a un paso más o menos), en el lado contrario al bastón en caso de que hubiera.</li>
+                        <li>Ofreceremos nuestro brazo para que se agarre a él.</li>
+                        <li>Nos cogerá el brazo justo por encima del codo. Nuestro brazo ha de estar relajado y transmitir naturalidad.</li>
+                        <li>Debemos evitar colocarnos detrás de ella y agarrar su brao o su bastón para empujarle hacia delante.</li>
+                        <li>Es imprescindible que la persona con discapacidad visual sienta que está gestionando la ayuda que recibe por nuestra parte y no tiremos de ella.</li>
+                        <li>
+                            Debemos evitar el estiramiento excesivo de su brazo y que tenga que separarlo demasiado de su cuerpo. Tiene que sentir cómodo su brazo y su codo 
+                            ha de ir flexionado.
+                        </li>
+                        <li>Adaptaremos nuestro paso a sus características y al medio por el que nos desplacemos para que camine cómodamente.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>Si hay que subir o bajar escaleras, escalones o rampas:</strong>
+                    <ul>
+                        <li>Le anticiparemos verbalmente que se acerca el desnivel de que se trate y nos aproximaremos al borde de la escalera o escalón perpendicularmente al mismo</li>
+                        <li>Nos detendremos brevemente antes de iniciar la subida o bajada.</li>
+                        <li>Nos colocaremos siempre una escalera por delante de ella.</li>
+                        <li>
+                            Una vez finalizada la subida o bajada, nos pararemos brevemente antes de reanudar la marcha normal, para hacerle saber que las escaleras o escalón
+                            han terminado. La pausa terminará cuando nos hayamos asegurado que la persona también ha finalizado.
+                        </li>
+                        <li>
+                            En las escaleras mecánicas, es preferiblemente que una situados en el inicio de la escalera, le ayudemos a colocar su mano sobre el pasamanos y que 
+                            aborde ella sola la escalera. En este caso, iremos delante si la escalera es de bajada y detrás si es de subida.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>En un ascensor:</strong>
+                    <ul>
+                        <li>Guiaremos a la persona con discapacidad visual hasta llegar al ascensor según las indicaciones facilitadas para los desplazamiento.</li>
+                        <li>
+                            Le avisaremos cuando la puerta ya está abierta. Una vez haya entrado, accederemos nosotros y nos colocaremos a su lado. Si las puertas son automáticas, 
+                            verbalizaremos el momento en que ya se hayan abierto y accederemos al interor con el acompañamiento conocido.
+                        </li>
+                        <li>Si el ascensor cuenta con numeración en Braille, lo comentaremos con la persona ciega para su conocimiento y posible uso.</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <strong>En relación con los perros guía:</strong>
+                    <ul>
+                        <li>
+                            Debemos entender que se trata de una elemento de ayuda para esa persona y que es ella quien atiende y gestiona su conducta. Según la legislación 
+                            espñola, tienen el derecho de acceder a las mismas estancias que la persona con discapacidad.
+                        </li>
+                        <li>Evitaremos interactuar con el perro guía. Procuraremos no hablarle ni contactar físicamente con él.</li>
+                        <li>En los desplazamientos o paradas, nos posicionaremos en el lado contrario al que ocupa el animal</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h5 class="bordeTitulo">RESUMIENDO: Si vas con una persona con problemas visuales has de tener en cuenta:</h5>
+            <ol>
+                <li>Dependiendo de la deficiencia visual, autonomía, aptitud personal, etc... los niveles de funcionamiento son diferentes.</li>
+                <li>Antes de ayudar preguntaremos y respetaremos la respuesta, NO es No y SI es SI.</li>
+                <li>
+                    Al dirigirnos a una persona con problemas de visión nos identificaremos y aseguraremos que nuestro interlocutor sabe que nos dirigimos a él. Nuestra voz es
+                    su imagen
+                </li>
+                <li>Intentar ser lo más precisos, concisos y claros en el mensaje y, acordarse que lo gestos solo los veremos nosotrosm cuidado con el "es por allí" (señalando con el dedo).</li>
+                <li>Si nos visitan en nuestra casa tener todo ordenadito, evitando puertas entreabierdas, objetos fuera de sitio, etc.</li>
+                <li>
+                    Como primera conclusión, pensar que no todas las personas con problemas de visión acceden a la información de igual forma ya que dependerá del resto visual, de sus
+                    habilidades, pueden necesitar braille, o pantallas lupa, o textos impresos en tinta, etc y todo ello adaptado a sus necesidades.
+                </li>
+                <li>Las redes sociales no molan ya que su usabilidad deja mucho que desear.</li>
+                <li>
+                    Si tenemos dudas, usamos el sentido común, somos personas, ni ositos de peluche, ni mascotas, ni animales en peligro de extinción, personas, normales y corrientes, con días
+                    buenos y malos, con educación o sin ella, por tanto la naturalidad es muy interesante en todo momento.
+                </li>
+            </ol>
+        </section>
+
+        <section>
+            <a name="discapacidadFisica" id="discapacidadFisica"></a>
+            <h3 class="bordeTitulo">Personas con Discapacidad Física:</h3>
+
+            <h5 class="bordeTitulo">¿Qué es la Discapacidad Física?</h5>
+            <p class="sangria">
+                Las personas con Discapacidad Física son aquellas que presentan una disminución importante en la capacidad de movimiento de una o varias partes del cuerpo. Puede referirse a 
+                la dismunución o incoordinación del movimiento, a trastornos en el tono de muscular o a trastornos del equilibrio. Por ello, presentarn una alteración en la marcha y pueden 
+                requerir ayudas para su desplazamiento, como muletas, bastones o sillas de ruedas.
+            </p>
+
+            <h5 class="bordeTitulo">
+                A menudo encuentran mñultiples barreras físicas en el entorno, tanto urbanísticas como en la edificación o en los transportes, y tiene que solventar dificultades a la hora de:
+            </h5>
+            <ul>
+                <li>Realizar trayectos largos.</li>
+                <li>Superar escalones susperiores a 2cm y trayectos con pendientes pronunciadas.</li>
+                <li>Maniobrar para acceder a los espacios y moverse en el interior.</li>
+                <li>Alcanzar, agarrar y manupular objetos.</li>
+                <li>Mantener el equilibrio.</li>
+            </ul>
+
+            <h5 class="bordeTitulo">A la hora de interaccionar con personas con discapacidad física, es importante tener en cuenta:</h5>
+            <ul>
+                <li>
+                    Es fundamental, por parte de todo el personal, conocer el nivel de accesibilidad que reúne su establecimiento. Una puerta estrecha o un escalón pueden aislado pueden 
+                    impedir el acceso al mismo.
+                </li>
+                <li>Las zonas de paso deben estar siempre despejadas para facilitar el tránsito de los clientes.</li>
+                <li>
+                    La ley establece que la altura del mostrador debe tener una zona de menor altura para que las personas usuarias de sillas de ruedas puedan utilizarlo (0.75-0.85 metros).
+                    Si el mostrador no cumple este requisito, es necesario acercarse a la persona en silla de ruedas para atenderla. Si la consulta se va a prolongar, hay que sentarse para 
+                    que el cliente se encuentre más cómodo y a la misma altura. Es recomendable que los asientos sean altos y con reposabrazos para facilitar la incorporación de la persona 
+                    con movilidad reducida.
+                </li>
+                <li>
+                    La estructura de las mesas debe permitir que la persona con silla de ruedas pueda introducir sus piernas debajo de las mismas sin encontrar ningún obstáculo. Además debe 
+                    haber suficiente espacio entre las patas para que pueda acercarse con comodidad. Según establece la legislación vigente, este espacio debe tener una altura y anchura 
+                    mínimas de 0.7 metros.
+                </li>
+                <li>Entre le mobiliario debe haber un pasillo central que deje un espacio libre superior a 0,9 metros para facilitar los desplazamientos.</li>
+                <li>
+                    Ante una explicación o cuando hay que observar algo, es conveniente que se coloquen en primera fila para que el resto de personas no les dificulten la percepción visual 
+                    o auditiva.
+                </li>
+                <li>A la hora de colaborar en sus desplazamientos con silla de ruedas, esperar a su petición de ayuda. Nuestra ayuda será oportuna sólo si la requiere.</li>
+                <li>Si nos paramos en algún lugar, comprobaremos que la silla esté bien colocada.</li>
+                <li>En espacios estrechos, debemos prestar atención a que las manos y pies no choquen contra puertas, parede...</li>
+                <li>
+                    Si nos encontramos con una escalón, para subirlo pondremo la silla de frente al escalón de manera que primero subirán las ruedas delanteras y luego las traseras. Nos 
+                    colocaremos detrás por seguridad. Para bajarlo, colocaremos la silla de espaldas al escalón de manera que bajan primero las traseras. Aquí también nos colocaremos detrás 
+                    por precaución.
+                </li>
+                <li>
+                    Si nos encontramos con una rampa, para subir, la silla estará de frente a la rampa. Una vez subida, nos cercioraremos de que la silla ha superado por completo la pendiente. 
+                    Para bajarla, la silla irá de espaldas a la rampa de manera que se irá hacia atrás. Una vez abajo, comprobaremos que está bien colocada.
+                </li>
+            </ul>
+
+            <h5 class="bordeTitulo">RESUMIENDO: Si vas con una persona que utiliza muletas o sillas de ruedas has de tener en cuenta:</h5>
+            <ol>
+                <li>
+                    Con las muletas somos muy viciosos: elegimos lados de acera, consideramos a las muletas nuestras piernas y nos gusta tenerlas a nuestro lado, así que si notáis que se me 
+                    olvidan, las he dejado lejos, y en alguna otra eventualidad la ayudita viene bien.
+                </li>
+                <li>Evitaremos tropezar, empujarle son consejos que sirven para todo el mundo, la salvedad es que nosotros nos vamos al suello con facilidad.</li>
+                <li>
+                    ¡¡Ah!! ya estamos, nos hemos caído ¿qué podéis hacer? No seáis 007 y preguntad primero, nosotros os diremos si necesitamos ayuda (recordad no es no y sí, es sí), cuando
+                    nos caemos en segundos nuestra mente mueve todo lo que podemos mover por si se ha roto o lesionado algo, valoramos el entorno y vemos si podemos por nosotros mismo levantarnos,
+                    si no es así pedimos ayuda o nos la conceden. En caso de ayuda pensad que ni nos agarráis de los brazos nos dejáis inmovilizados, una buena técnica es por debajo de los 
+                    sobacos, aunque otra técnicas que existen os las contaremos antes de ayudarnos. Ya sabéis, la mejor ayuda es preguntar.
+                </li>
+                <li>
+                    Nos pasa como a los compis con parálisis cerebral: escaleras mecánicas, o sin barandillas, cruces muy largos... pueden ser lugares donde la ayudita venga bien. Se agradece, 
+                    aunque si tengo un mal día y te respondo mal, no me lo permitas ¡ni se te ocurra!.
+                </li>
+                <li>Si alguien que va contigo usa silla de ruedas, recuerda que es una persona.</li>
+                <li>
+                    Manejar una silla es fácil pero tiene sus trucos, te encontrarás a quien baja escaleras o a quien necesita que un bordillo mal rebajado le des un empujoncito, él o ella te 
+                    dirá la mejor forma de hacerlo. Como pista: levanta siempre las ruedas delanteras de la silla ya que sino nos convertiremos en "hombre bala".
+                </li>
+                <li>
+                    Como siempre, y vamos repitiendo, naturalidad, colaboración, sentido común, "normalidad": somos personas como vosotros, cierto que a veces cómodamente sentados en la silla 
+                    de ruedas pero con días buenos, malos, de mejor o peor humor, como tú. Así que lo que aguantes o no aguantes a los demás  cópialo y hazlo conmigo, en eso consisten las 
+                    relaciones sociales.
+                </li>
+            </ol>
+
+        </section>
+
+        <section>
+            <a name="discapacidadIntelectual" id="discapacidadIntelectual"></a>
+            <h3 class="bordeTitulo">Personas con Discapacidad Intelectual:</h3>
+
+            <h5 class="bordeTitulo">¿Qué es la Discapacidad Intelectual?</h5>
+            <p class="sangria">
+                Dentro de esta discapacidad nos encontramos con personas que, aún teniendo algunos rasgos comunes derivados de sus limitaciones cognitivas, responden a perfiles muy heterogéneos.
+                Las personas con discapacidad intelectual pueden tener algunas dificultades de comunicación oral, pero no quiere decir que no sean capaces de comunicarse.
+            </p>
+
+            <h5 class="bordeTitulo">Siempre tendremos que tener presentes las siguientes pautas:</h5>
+            <ul>
+                <li>Hay que considerar sus comentarios y propuestas, como las de una persona adulta, joven o niño, no por estereotipos.</li>
+                <li>
+                    Conviene que utilicemos frases cortas claras y sencillas para su comprensión, comunicandoel mensaje de la forma más simple y clara posible. No utilices el lenguaje abstracto
+                    y los tecnicismos y asegúrate de su compresión empleando un lenguaje sencillo, accesible y cotidiano.
+                </li>
+                <li>Es aconsejable que se coloquen cerca de nosotros para que concentración sea más consistente.</li>
+                <li>No te adelantes a las emisiones de la persona, acomódate a su ritmo, dándole opciones de intervenir y respetando sus silencios.</li>
+                <li>Ante los cambios está especialmente indicado anticipar información, verbalizar por adelantado lo que va a suceder, con el fin de aumentar su capacidad de adaptación.</li>
+                <li>Ignora comportamientos que puedan parecer extraños (por ejemplo, vocalizaciones o gestos inusuales).</li>
+                <li>Son de gran ayuda comunicativa las comparaciones, ejemplos o referencias vivenciales significativas para ella.</li>
+                <li>
+                    Adapta el lenguaje al nivel de la persona: si éste no tiene lenguaje oral, puede acompañar sus explicaciones con material gráfico, signos y señas para facilitar la 
+                    comprensión.
+                </li>
+                <li>Utiliza lenguaje positivo.</li>
+                <li>Debemos utilizar material escrito como recordatorio de tareas y/o datos importantes.</li>
+                <li>Ten en cuenta que la compresión del tiempo puede ser difícil para ellos, por lo que deberás asegurarte de que entiende nuestra explicación.</li>
+                <li>Ten en cuenta que pueden tener dificultades para centrar su atención y pueden mostrar interés por objetos que para nosotros pasan desapercibidos.</li>
+                <li>Reduce, a ser posible, la estimulación sensorial y las interrupciones en la conversación.</li>
+                <li>Retira el material que no vayas a emplear.</li>
+                <li>Ten en cuenta que a estas personas les gusta relacionarse con otras personas, a pesar de que a veces tengan dificultades para hacerlo.</li>
+                <li>
+                    Da una mayor importancia a la interacción social utilizando aspectos que acompañan al lenguaje oral, como gesto, sonrisas, proximidad, mirada, tono... que permiten crear 
+                    un marco de seguridad y tranquilidad. Para fomentar la confianza, puede ser útil tratar un tema que le interese, si es un adulto, o hacer algún juego que le guste si es un
+                    niño.
+                </li>
+                <li>Les trataremos de acuerdo a su edad cronológica, evitando infantilizar nuestro lenguaje si no es un niño y contemplando con respeto sus opiniones o puntos de vista.</li>
+                <li>
+                    Es conveniente que consideremos que algunas personas con Discapacidad Intelectual o trastornos de desarrollo viven con incomodidad al contacto físico. Como norma general, 
+                    nuestra relación en este sentido ha de tener un planteamiento equivalente al que seguiremos con cualquier personas.
+                </li>
+                <li>Debemos tender a emitir respuestsa lo más normalizadas posibles.</li>
+            </ul>
+            
+            <h5 class="bordeTitulo">RESUMIENDO: Si vas con una persona con Parálisis Cerebral has de tener en cuenta:</h5>
+            <ol>
+                <li>Como decíamos puede tener dificultades para caminar, problemas de lenguaje o no controlar algunos movimientos (la imagen es muy expresiva) pero ¡¡te entiende perfectamente!!</li>
+                <li>
+                    Habitualmente puede que no entiendas lo que dice, pídele que te lo repita, estamos acostumbrados y nos molesta más el "sí, si...", que es sinónimo de "no tengo ni P... idea". 
+                    Las nuevas tecnologías a través de e-mail, redes sociales con sus chat facilitan en parte esta barrera que es muy sencilla de derribar: Paciencia y espíritu positivo.
+                </li>
+                <li>Si estáis en un bar probablemente necesite una pajita para beber, pídela por él que te aseguro que te lo agradecera.</li>
+                <li>Nuestro sistema nervioso está alterado así que un ruído determinado, un susto... puede hacer que me sobresalte.</li>
+                <li>Ofrécele tu brazo (no se lo agarres que le pones esposas) él o ella irá más seguro y te convertirás en su muleta, su punto de apoyo.</li>
+                <li>Hay momentos delicados que la ayudita viene bien: viento, escaleras mecánicas o escaleras sin barandillas, cruces muy largos o con semáforos, etc.</li>
+                <li>
+                    Sabemos de nuestra vida más que los demás así que es muy común preguntar porque no llevas bastón, si no lo llevamos es porque no podemos, porque descontrolamos nuestras manos y 
+                    puede ser más un estorbo que una ayuda.
+                </li>
+                <li>Si nuestro entorno no lo conoce puedes dar unos consejitos a tu gente como que le ceda el paso o que no tropiece con él o ella porque con casi toda seguridad irá al suelo.</li>
+                <li>
+                    Consejos como no hablar en tercera persona, usar la naturalidad, el sentido común, también es muy válido y, sobretodo no prejuzgues, los cánones que denominamos standard son 
+                    muy engañosos y nos encorsetan, ábrete al mundo flexibiliza tu mente.
+                </li>
+            </ol>
+
+        </section>
+
+        <section>
+            <a name="discapacidadAuditiva" id="discapacidadAuditiva"></a>
+            <h3 class="bordeTitulo">Personas con Discapacidad Auditiva:</h3>
+
+            <h5 class="bordeTitulo">¿Qué es la discapacidad Visual?</h5>
+            <p class="sangria">
+                Las personas con discapacidad auditiva, pueden encontrar dificultades a la hora de decodificar mensajes, anticipar hechos y manejar símbolos que se sustenten en la 
+                estructura del lenguaje verbal.
+            </p>
+
+            <h5 class="bordeTitulo">
+                Cuando estemos con personas sordas o hipoacústicas, intentaremos facilitarles ayudas que complementen, aumenten o supongan una alternativa a este 
+                sistema de comunicación, para ello:
+            </h5>
+            <ul>
+                <li>Evitaremos hablarles sin que nos esté mirando.</li>
+                <li>Le avisaremos cuando queramos hablar con ella, indicándole el tema de conversación y, cada vez que varíe, se lo haremos saber.</li>
+                <li>Llamaremos su atención con un ligero toque o ocn una discreta seña antes de hablar.</li>
+                <li>Nos situaremos a su altura, sobre todo si son niños.</li>
+                <li>Mientras hablemos, es necesario que no tengamos nada en los labios ni en la boca.</li>
+                <li>Evitaremos ponre las manos delante de nuestra boca.</li>
+                <li>Vocalizaremos bien peron sin exagerar ni elevar el volumen de voz.</li>
+                <li>Hablaremos siempre con un tono natural, evitando hablarle deprisa o demasiado espacio.</li>
+                <li>Si no nos entiende, repetiremos el mensaje. Construiremos la frase de otra manera más sencilla, pero correcta y con palabras de significado similar </li>
+                <li>Ayudaremos a la comunicación con gestos naturales que le sirvan de apoyo, sin sobreactuar.</li>
+                <li>Le hablaremos de frente, con la cara bien iluminada y de cerca para facilitar la lectura labial.</li>
+                <li>Mientras caminemos, es preferible no hablar.</li>
+                <li>
+                    Darles información complementario sobre cualquier estímulo auditivo (músicas de fondo, mensajes de megafonía, instruccioones verbales de grupo...). Eso les 
+                    permite entender mejor las reacciones de otras personas y adecuar su comportamiento de un modo más eficaz.
+                </li>
+            </ul>
+
+            <h5 class="bordeTitulo">RESUMIENDO: Si te encuentras a una persona con problemas de audición recuerda:</h5>
+            <ol>
+                <li>El sordo o sorda ni te oye, ni se oye.</li>
+                <li>Hazle algún tipo de señal antes de comenzar a hablar.</li>
+                <li>
+                    Algunas personas sólo podrán comprenderte leyendo tus labios asi que colócate delante al hablar y, muy importante, no mantengas cigarrillos, pipas, chicles, etc 
+                    en los labios y no te tapes la boca.
+                </li>
+                <li>Habla despacio vocalizando bien pero sin exagerar, ¡¡ah!! y no grites que les da lo mismo y volverás locos a los de alrededor.</li>
+                <li>Usa palabras sencillas y frases cortas y correctas situando el tema de conversación que vas a iniciar.</li>
+                <li>Si es necesario le escribes lo que quieres decir.</li>
+                <li>
+                    Como siempre, naturalidad, sentido común y no olvidéis, somos personas normales y corrientes, como tú, no somos ni ositos de peluche, ni tontos, ni mascotas, 
+                    tenemos momentos buenos, malos, con mejor o peor educación.
+                </li>
+            </ol>
+
+        </section>
+
+        
+
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    
+</body>
+</html>

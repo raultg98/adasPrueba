@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Noticias)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <main class="mx-5 my-2">
+
+        <h3 class="bordeTitulo">Noticias</h3>
+
+        <div th:if="${#lists.isEmpty(noticias)}">
+            <h3 class="text-muted">Actualmente no hay noticias</h3>
+        </div>
+
+        <!-- NUEVA FORMA DE VISUALIZAR LAS NOTICIAS -->
+        <div class="tarjetas">
+            <div th:each="noticia : ${noticias}" class="tarjeta">
+                <div class="tarjetaContenido">
+                    <img th:src="@{/img/noticias/}+${noticia.foto}" class="tarjetaImagen">
+
+                    <div class="mx-2 my-2 tarjetaContenido_body">
+                        <h5 th:text="${noticia.titulo}" class="card-title text-center"></h5>
+                    
+                        <div th:text="${noticia.descripcion}"  class="descripcion card-text"></div>
+                    </div>
+
+                    <div class="row card-footer tarjetaFooter tarjetaFooterTamanio">
+                        <div class="col-6 tarjetaPadding">
+                            <strong th:text="${noticia.usuarioId.cargo}" class="tarjetaCargo"></strong>
+                        </div>
+                        
+                        <div class="col-6 d-flex justify-content-end text-muted tarjetaPadding">
+                            <i th:text="${#dates.format(noticia.fecha, 'dd-MMM-yyyy')}"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tarjetaHover">
+                    <a th:href="@{/noticias/noticia/}+ ${noticia.id}" class="tarjetaHover__boton">
+                        VER NOTICIA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/scriptNoticiaTexto.js}"></script>
+
+</body>
+</html>

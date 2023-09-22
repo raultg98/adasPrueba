@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head(Noticias)}"></head>
+<body>
+
+    <nav th:replace="~{fragments/nav :: nav_bar}"></nav>
+
+    <!-- MENSAJE FLASH -->
+    <div class="mx-4">
+        <div th:replace="~{fragments/mensajeFlash :: mensajeFlash(${message}, ${clase})}"></div>
+    </div>
+
+
+    <main class="mx-5 my-2">
+        <section class="row justify-content-center">
+            <div class="col-md-6 col-sm-10 col-xs-10 my-2 tarjetaPadding tarjetaNoticiaUnica">
+
+                <img th:src="@{/img/noticias/}+${noticia.foto}" class="tarjetaImagenNoticia">
+                
+                <div class="mx-2 my-2">
+                    <h5 th:text="${noticia.titulo}" class="card-title text-center"></h5>
+
+                    <p th:text="${noticia.descripcion}" class="card-text tarjetaTexto descripcion"></p>
+                </div>
+
+                <div class="row  tarjetaFooterNoticia" >
+                    <div class="col-6 tarjetaPadding">
+                        <strong th:text="${noticia.usuarioId.cargo}" class="textoCursiva"></strong>
+                    </div>
+
+                    <div class="col-6 d-flex justify-content-end tarjetaPadding">
+                        <small th:text="${#dates.format(noticia.fecha, 'dd-MMM-yyyy')}" class="text-muted textoCursiva"></small>
+                    </div>
+
+                </div>    
+            </div>
+
+            <!-- MOSTRAR LOS MENSAJES -->
+            <div class="col-md-6 col-sm-10 mx-2 my-2 tarjetaPadding">
+
+                <h3 class="bordeTitulo">Mensajes</h3>
+
+                <div th:if="${#lists.isEmpty(mensajeObj)}">
+                    <h3 class="text-muted">Actualmente no hay mensajes</h3>
+                </div>
+
+                <div th:each="msj : ${mensajeObj}" class="my-2 tarjetaNoticiaUnica">
+                    <div class="my-2 tarjetaNoticiaMensaje">
+                        <p th:text="${msj.mensaje}" class="card-text"></p>
+                    </div>
+
+                    <div class="row tarjetaFooterNoticia">
+                        <div class="col-6 tarjetaPadding">
+                            <strong th:text="${msj.autorId.nombre}" class="textoCursiva"></strong>
+                        </div>
+
+                        <div class="col-6 d-flex justify-content-end text-muted tarjetaPadding">
+                            <small th:text="${#dates.format(msj.fecha, 'dd-MMM-yyyy')}" class="textoCursiva"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULARIO PARA CREAR UN NUEVO COMENTARIO -->
+            <div class="col-md-6 col-sm-10 mx-2 tarjetaNoticiaUnica" >
+
+                <div id="mensajeError"></div>
+
+                <h3 class="my-2 mx-2 bordeTitulo">Deja tu comentario</h3>
+                <form th:action="@{/mensajes/add/}+${noticia.id}" method="POST" class="my-2 mx-2" id="formulario">
+
+                    <div class="form-group">
+                        <label for="comentarioMensaje">
+                            Comentario
+                            <strong class="text-danger">*</strong>
+                        </label>
+                        <textarea name="mensaje" id="comentarioMensaje" rows="5" class="form-control" placeholder="Deja aqui tu comentario"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="autorMensaje">
+                            Nombre
+                            <strong class="text-danger">*</strong>
+                        </label>
+                        <input type="text" name="nombre" id="autorMensaje" class="form-control" placeholder="Introduce tu nombre">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correoMensaje">
+                            Correo
+                            <strong class="text-danger">*</strong>
+                        </label>
+                        <input type="email" name="correo" id="correoMensaje" class="form-control" placeholder="Introduce tu correo">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-text">
+                            <strong class="text-danger">*</strong>
+                            <i class="text-muted">Campos requeridos</i>
+                        </div>
+
+                        <div class="form-text">
+                            <i class="text-muted">El correo no se mostrara al publicar el comentario</i>
+                        </div>
+                    </div>
+                
+                    <div class="row my-2">
+                        <button type="submit" class="colorBorde colorTexto col-12" id="btnEnviar" disabled>
+                            <i class="fa-sharp fa-solid fa-share-from-square"></i>
+                            Enviar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section> 
+    </main>
+
+    <footer th:replace="~{fragments/footer :: footer}"></footer>
+
+    <script th:src="@{/js/scriptFooter.js}"></script>
+    <script th:src="@{/js/validacionesAdd/scriptValidacionesMensajeAdd.js}" type="module"></script>
+    <script th:src="@{/js/scriptNoticiaTexto.js}"></script>
+    
+</body>
+</html>

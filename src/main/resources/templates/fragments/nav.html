@@ -1,0 +1,50 @@
+<nav th:fragment="nav_bar" class="navegador">
+
+    <!-- LOGO -->
+    <a class="contenedorLogo" th:href="@{/}">
+        <img src="/img/logoADASpng.png" alt="" class="logo">
+    </a> 
+
+    <!-- NAVIGATION MENU -->
+    <ul class="navegador-links">
+        <!-- HAMBURGUESA -->
+        <input type="checkbox" class="checkbox-navegador" id="checkbox_toggle">
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+        <!-- NAVIGATION MENUS -->
+        <div class="menu text-center">
+            <li><a th:href="@{/}">INICIO</a></li>
+
+            <!-- DESPLEGABLE -->
+            <li class="sobreNosotros">
+                <a href="#">SOBRE NOSOTROS</a>
+
+                <ul class="sobreNosotros_dropdown">
+                    <li><a th:href="@{/sobreNosotros/quienesSomos}">QUIENES SOMOS</a></li>
+                    <!-- <li><a th:href="@{/sobreNosotros/queHacemos}">QUE HACEMOS</a></li>
+                    <li><a th:href="@{/sobreNosotros/nuestraHistoria}">NUESTRA HISTORIA</a></li> -->
+                    <li><a th:href="@{/galeria}">GALERIA</a></li>
+                    <li><a th:href="@{/sobreNosotros/estatutos}">ESTATUTOS</a></li>
+                </ul>
+            </li>
+
+            <!-- <li><a href="/servicios">SERVICIOS</a></li> -->
+            <li><a th:href="@{/noticias}">NOTICIAS</a></li>
+            <li><a th:href="@{/colaboracion}">COLABORACION</a></li>
+            
+            <li class="servicios">
+                <a href="#">SERVICIOS</a>
+
+                <ul class="servicios_dropdown">
+                    <!-- <li><a th:href="@{/servicios/talleres}">TALLERES</a></li> -->
+                    <li><a th:href="@{/servicios/programas}">PROGRAMAS</a></li>
+                    <li><a th:href="@{/servicios/actividades}">ACTIVIDADES</a></li>
+                    <li><a th:href="@{/servicios/manuales}">MANUALES</a></li>
+                    <li><a th:href="@{/servicios/idi}">I+D+I</a></li>
+                </ul>
+            </li>
+            <li><a th:href="@{/contacto}">CONTACTO</a></li>
+            <li><a th:href="@{/login}">LOGIN</a></li>
+        </div>
+    </ul>
+</nav>

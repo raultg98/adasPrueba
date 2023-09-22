@@ -1,0 +1,116 @@
+:root{
+    --color-adas: #3fc8eb;
+    --color-adasOscuro: #38333b;
+    --color-editar: #E67E22;
+    --color-borrar: #CB4335;
+    --color-mensaje: #117864;
+    --color-twitter: #00acee;
+    --color-facebook: #3b5998;
+    --color-correo: #DB4437;
+    --color-instagram: #E1306C;
+    --color-footer: #DEE2E3;
+}
+
+.estatutosLista li{
+    list-style: none;
+}
+
+/********* QUIENES SOMOS INDEX *********/
+.contenedorSN{
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+}
+
+.contenedorSN_hijo{
+    height: 165px;
+    padding: 0px;
+    box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);
+    border: 3px transparent;
+    border-radius: 0px 13px 13px 13px;
+}
+
+.SN_contenido{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.SN_contenido-texto{
+    margin: 0 20px;
+}
+
+.SN_hover{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    opacity: 0;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -165px;
+    border: 3px transparent;
+    border-radius: 0px 13px 13px 13px;
+
+}
+
+.SN_hover-boton{
+    border: 3px solid var(--color-adas);
+    border-radius: 13px;
+    padding: .5rem;
+    color: var(--color-adas);
+}
+
+.SN_hover-boton:hover{
+    background-color: var(--color-adas);
+    color: #fff;
+}
+
+.contenedorSN_hijo:hover .SN_hover{
+    z-index: 1;
+    opacity: .9;
+}
+
+@media screen and (max-width: 650px){
+    .contenedorSN{
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+}
+
+/********* QUIENES SOMOS *********/
+.acronimoADAS{
+    font-weight: bold;
+    color: var(--color-adas);
+    font-size: 1.5rem;
+}
+
+.sangria{
+    padding-left: 30px;
+}
+
+.negrita{
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.negritaADAS{
+    font-weight: bold;
+}
+
+.sinMargen{
+    margin: 0px;
+}
+
+.enlace{
+    font-style: none;
+    color: black;
+    font-weight: bold;
+}
+
+.enlace:hover{
+    color: var(--color-adas);
+}

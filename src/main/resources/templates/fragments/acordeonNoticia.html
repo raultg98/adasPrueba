@@ -1,0 +1,63 @@
+<div th:fragment="acordeonNoticia" class="my-2 acordeonPadre" id="acordeon">
+    <div class=" acordeon">
+        <div class=" acordeonHeader" id="headingOne">
+            <button class=" acordeonBoton" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                COMO DAR ESTILOS A LAS NOTICIAS
+            </button>
+        </div>
+
+        <div class="accordion-collapse collapse acordeonBody" id="collapseOne" aria-labelledby="headingOne" 
+             data-bs-parent="#acordeon">
+            <div class="accordion-body">
+                Podemos dar estilos a la descripción de nuestras noticias utilizando diferentes sentencias. Es importante
+                que estas se escriban tal cual estan definidas con espacios entre ellas. Se pueden poner todas las sentencias
+                que deseemos y estas se pueden intercalar entre sí. 
+
+                <ul>
+                    <li>
+                        <strong>SALTOS DE LINEA:</strong>
+                        Si queremos introducir saltos de linea tenemos que poner <strong>$saltoLinea</strong> justo antes de 
+                        donde deseamos que produzca.
+                    </li>
+                    <li>
+                        <strong>TEXTO EN NEGRITA:</strong>
+                        Si queremos introducir texto en negrita, tenemos que encapsular las palabras que tenemos en negrita de 
+                        la siguiente forma: <br>
+                        <strong>$negrita</strong> texto <strong>$finNegrita</strong>
+                    </li>
+                    <li>
+                        <strong>TEXTO EN CURSIVA:</strong>
+                        Si queremos introducir texto en cursiva, al igual que en el texto en negrita tenemos que encapsular las
+                        palabras pero de esta forma: <br>
+                        <strong>$cursiva</strong> texto <strong>$finCursiva</strong>
+                    </li>
+                    <li>
+                        <strong>TEXTO SUBRAYADO:</strong>
+                        Si queremos introducir texto el cual este subrayado, es igual que en los dos casos anterior, tenemos que
+                        encapsular las palabras, pero de esta forma: <br>
+                        <strong>$subrayado</strong> texto <strong>$finSubrayado</strong>.
+                    </li>
+                </ul>
+
+                <h5>Ejemplo de como se implementan las sentecias y de como se intercalan estas entre sí.</h5>
+                <dl class="sangria">
+                    <dt>Como se escribiria la noticia:</dt>
+                        <dd class="sangria">
+                            Esto es un <strong>$negrita</strong> texto de <strong>$cursiva</strong> ejemplo de <strong>$finCursiva</strong> como 
+                            se dan estilos a las noticias. <strong>$finNegrita $saltoLinea</strong> Vamos a <strong>$cursiva $subrayado</strong>
+                            introducirlos <strong>$finSubrayado</strong> intercalados <strong>$finCursiva</strong> para ver <stron>$saltoLinea</stron>
+                            como funcionan estos.
+                        </dd>
+                    <dt>Resultado: </dt>
+                        <dd class="sangria">
+                            Esto es un <strong> texto de <u>ejemplo de </u>como se dan estilos a las noticias.</strong> <br>
+                            Vamos a <i>introducirlos <u>intercalados</u></i> para ver <br>
+                            como funcionan estos.
+                        </dd>
+                </dl>
+               
+            </div>
+        </div>
+    </div>
+</div>
