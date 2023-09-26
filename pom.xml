@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.30</version>
 		</dependency>
 		
 		<dependency>
@@ -78,12 +78,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		
-		<dependency>     
-			<groupId>com.apple</groupId>     
-			<artifactId>AppleJavaExtensions</artifactId>     
-			<version>1.4</version> 
 		</dependency>
 		
 	</dependencies>
