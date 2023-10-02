@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.adas.DAO.IMensajesDAO;
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class Seguridad {
 
 //	@Bean
